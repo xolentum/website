@@ -6,7 +6,7 @@
     	<meta charset="utf-8" />
     	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     	<meta name="description" content="Xolentum is a decentralized, peer-to-peer and open source digital currency. It's fast, secure and completely private.">
-    	<title>Press Kit | Xolentum</title>
+    	<title>Mining Guide | Xolentum</title>
     	<meta name="robots" content="index, follow" />
     	<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     	<meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
@@ -14,9 +14,9 @@
     	<meta property="og:locale" content="en_US" />
     	<meta property="og:type" content="website" />
     	<meta property="og:site_name" content="Xolentum - The Future is Digital" />
-    	<meta property="og:title" content="Resources: Press Kit" />
+    	<meta property="og:title" content="Resources: Guides > Mining" />
     	<meta property="og:description" content="Xolentum is a decentralized, peer-to-peer and open source digital currency. It's fast, secure and completely private." />
-    	<meta property="og:url" content="/resources/press-kit" />
+    	<meta property="og:url" content="/resources/guides/mining" />
     	<meta property="og:image" content="/resources/press-kit/assets/symbol.png" />
     	<meta property="og:image:width" content="1513" />
     	<meta property="og:image:height" content="1512" />
@@ -65,37 +65,38 @@
 
 	<section id="one" class="main style1">
 		<div class="container">
-			<header class="major">
-								<h2>Xolentum Press Kit</h2>
-							</header>
-							<p>Here you can find the symbol and logo for Xolentum and download them as per your preference.</p>
-							
-                            <div class="row gtr-150">
-                                <div class="col-6 col-12-medium">
-                                <header class="major" style="text-align: center;">
-								    <h3>Xolentum Symbol</h3>
-							    </header>
-							
-							    <div style="text-align: center;"><img src="assets/symbol.png"></div>
-							
-							    <div style="text-align: center;">
-							        <a href="assets/symbol.png" class="button scrolly" >Download (135x135) <i class="fa fa-download"></i></a>
-							    </div>
-                            </div>
-                            
-							<div class="col-6 col-12-medium">
-							<header class="major" style="text-align: center;">
-								<h3>Xolentum Logo</h3>
-							</header>
-							
-							<div style="text-align: center;"><img src="assets/logo.png"></div>
-							
-							<div style="text-align: center;">
-							<a href="assets/logo.png" class="button scrolly" >Download (370x135) <i class="fa fa-download"></i></a>
-							</div>
-							
-                            </div>
-                            </div>
+			<div class="row gtr-150">
+				<header class="major">
+					<h2>Mining Guide</h2>
+				</header>
+				<p>This is a comprehensive guide on how to mine Xolentum on your machine using XMRig and <code>xolentumd</code> daemon.</p>
+				<ul>
+				    <li>
+				        You will need to either download prebuilt binaries of the latest XMRig release available <a href="https://github.com/xmrig/xmrig/releases/latest">here</a> or compile it on your system using the guide available <a href="https://xmrig.com/docs/miner#build">here</a>.
+				    </li>
+				    <li>
+				        After downloading/building XMRig on your system, switch to the <code>$XMRIG_ROOT/build</code> directory and create a file called <code>config.json</code> with the following content: 
+				        <pre><code>{
+    "autosave": true,
+    "donate-level": 5,
+    "cpu": true,
+    "opencl": false,
+    "cuda": false,
+    "pools": [
+        {
+            "algo": "rx/0",
+            "url": "127.0.0.1:13579",
+            "user": "xyz123",
+            "daemon": true
+        }
+    ]
+}</code></pre><b>Do remember to replace <code>xyz123</code> with your Xolentum wallet address. <br>Also, change <code>donate-level</code> to whatever amount you would like to donate to XMRig developers (0 to disable donations).</b>
+				    </li>
+				    <li>
+				        Henceforth, just execute the <code>xmrig.exe</code> file (on Windows) or <code>./xmrig</code> (on Linux) and the miner should start. 
+				    </li>
+				</ul>
+			</div>
 		</div>
 	</section>
 

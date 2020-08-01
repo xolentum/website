@@ -1,36 +1,31 @@
 <!DOCTYPE HTML>
 <html>
 <head profile="http://www.w3.org/2005/10/profile">
-	<link rel="icon" type="image/png" href="/images/favicon.png" />
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<meta name="description" content="Xolentum is a decentralized, peer-to-peer and open source digital currency. It's fast, secure and completely private.">
-	<title>Xolentum</title>
-	<meta name="robots" content="index, follow" />
-	<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-	<meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-	<link rel="canonical" href="https://xolentum.sohamb03.me/" />
-	<meta property="og:locale" content="en_US" />
-	<meta property="og:type" content="website" />
-	<meta property="og:title" content="Xolentum - The Future is Digital" />
-	<meta property="og:description" content="Xolentum is a decentralized, peer-to-peer and open source digital currency. It's fast, secure and completely private." />
-	<meta property="og:url" content="https://xolentum.sohamb03.me/" />
-	<meta property="og:image" content="https://xolentum.sohamb03.me/images/favicon.png" />
-	<meta property="og:image:width" content="1513" />
-	<meta property="og:image:height" content="1512" />
-	<meta name="twitter:card" content="summary" />
-	<link rel="stylesheet" href="/assets/css/main2.css" />
-	<noscript>
-		<link rel="stylesheet" href="/assets/css/noscript.css" />
-	</noscript>
-	
-	<!-- style>
-    	.fa.fa-bars {
-            font-size: 20px; 
-            }
-	</style -->
-	
-</head>
+    	<link rel="icon" type="image/png" href="/images/favicon.png" />
+    	<meta charset="utf-8" />
+    	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    	<meta name="description" content="Xolentum is a decentralized, peer-to-peer and open source digital currency. It's fast, secure and completely private.">
+    	<title>Compilation Guide | Xolentum</title>
+    	<meta name="robots" content="index, follow" />
+    	<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    	<meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    	<link rel="canonical" href="/" />
+    	<meta property="og:locale" content="en_US" />
+    	<meta property="og:type" content="website" />
+    	<meta property="og:site_name" content="Xolentum - The Future is Digital" />
+    	<meta property="og:title" content="Resources: Guides > Compilation" />
+    	<meta property="og:description" content="Xolentum is a decentralized, peer-to-peer and open source digital currency. It's fast, secure and completely private." />
+    	<meta property="og:url" content="/resources/guides/compilation" />
+    	<meta property="og:image" content="/resources/press-kit/assets/symbol.png" />
+    	<meta property="og:image:width" content="1513" />
+    	<meta property="og:image:height" content="1512" />
+    	<meta name="twitter:card" content="summary" />
+    	<link rel="stylesheet" href="/assets/css/main.css" />
+    	<noscript>
+    		<link rel="stylesheet" href="/assets/css/noscript.css" />
+    	</noscript>
+    </head>
+
 <body class="is-preload">
 
 	<section id="header">
@@ -74,24 +69,158 @@
 			    <h2>Compilation Guide</h2>
 			</header>
 		    <ul>
-		        <a href="#ubuntu_16"><li>Ubuntu 16</li></a>
-		        <a href="#ubuntu_18"><li>Ubuntu 18</li></a>
-		        <a href="#ubuntu_20"><li>Ubuntu 20</li></a>
+		        <a href="#ubuntu"><li>Ubuntu 16/18/20</li></a>
+		        <a href="#debian"><li>Debian 9/10</li></a>
 		        <a href="#centos_7"><li>CentOS 7</li></a>
 		        <a href="#centos_8"><li>CentOS 8</li></a>
+		        <a href="#arch_linux"><li>Arch Linux</li></a>
 		    </ul>
 		    
+		    <p>
+		        <b><u>NOTE:</u></b> The binaries will be in the <code>/bin</code> directory after a successful build.
+		    </p>
+		    
 		    <hr>
+		    
+		    <h3 id="ubuntu"><strong>Ubuntu 16/18/20</strong></h3>
+		    <ul>
+		        <li>
+		            Update system and install prerequisites.<br>
+		            <pre><code>sudo apt-get update -y && sudo apt-get upgrade -y && sudo apt-get install -y git</code></pre>
+		        </li>
+		        <li>
+		            Install other dependencies.<br>
+		            <pre><code>sudo apt install -y build-essential cmake pkg-config libboost-all-dev libssl-dev libzmq3-dev libunbound-dev libsodium-dev libunwind8-dev liblzma-dev libreadline6-dev libldns-dev libexpat1-dev doxygen graphviz libpgm-dev qttools5-dev-tools libhidapi-dev libusb-dev libprotobuf-dev protobuf-compiler</code></pre>
+		        </li>
+		        <li>
+		            On Ubuntu <code>libgtest-dev</code> only includes sources and headers. You must build the library binary manually.<br>
+		            <ul>
+		                <li>For Ubuntu 16 and 18:
+		                    <pre><code>sudo apt-get install -y libgtest-dev && cd /usr/src/gtest && sudo cmake . && sudo make && sudo mv libg* /usr/lib/</code></pre>
+		                </li>
+		                <li>For Ubuntu 20:
+		                    <pre><code>sudo apt-get install -y libgtest-dev && cd /usr/src/gtest && sudo cmake . && sudo make && sudo mv lib/* /usr/lib/</code></pre>
+		                </li>
+		            </ul>
+		        </li>
+		        <li>
+		            Now we will fetch the source files.<br>
+		            <pre><code>cd ~/ && git clone --recursive https://github.com/xolentum/xolentum</code></pre>
+		        </li>
+		        <li>
+		            Finally, we will start the build.<br>
+		            <pre><code>cd xolentum && cmake . && make -j$(nproc)</code></pre>
+		        </li>
+		    </ul>
+
+            <h3 id="debian"><strong>Debian 9/10</strong></h3>
+		    <ul>
+		        <li>
+		            Update system and install prerequisites.<br>
+		            <pre><code>sudo apt-get update -y && sudo apt-get upgrade -y && sudo apt-get install -y git</code></pre>
+		        </li>
+		        <li>
+		            Install other dependencies.<br>
+		            <pre><code>sudo apt install -y build-essential cmake pkg-config libboost-all-dev libssl-dev libzmq3-dev libunbound-dev libsodium-dev libunwind8-dev liblzma-dev libreadline6-dev libldns-dev libexpat1-dev doxygen graphviz libpgm-dev qttools5-dev-tools libhidapi-dev libusb-dev libprotobuf-dev protobuf-compiler</code></pre>
+		        </li>
+		        <li>
+		            On Debian <code>libgtest-dev</code> only includes sources and headers. You must build the library binary manually.<br>
+		            <pre><code>sudo apt-get install -y libgtest-dev && cd /usr/src/gtest && sudo cmake . && sudo make && sudo mv lib/* /usr/lib/</code></pre>
+		        </li>
+		        <li>
+		            Now we will fetch the source files.<br>
+		            <pre><code>cd ~/ && git clone --recursive https://github.com/xolentum/xolentum</code></pre>
+		        </li>
+		        <li>
+		            Finally, we will start the build.<br>
+		            <pre><code>cd xolentum && cmake . && make -j$(nproc)</code></pre>
+		        </li>
+		    </ul>
+		    
+		    <h3 id="centos_7"><strong>CentOS 7</strong></h3>
+		    <ul>
+		        <li>
+		            Update system and install prerequisites.<br>
+		            <pre><code>sudo yum update -y && sudo yum install -y wget git epel-release centos-release-scl</code></pre>
+		        </li>
+		        <li>
+		            Install other dependencies.<br>
+		            <pre><code>sudo yum install -y devtoolset-8 cmake cmake3 pkgconfig openssl-devel zeromq-devel openpgm-devel unbound-devel libsodium-devel libunwind-devel xz-devel readline-devel ldns-devel expat-devel gtest-devel doxygen graphviz qt5-linguist hidapi-devel libusb-devel protobuf-devel protobuf-compiler</code></pre>
+		        </li>
+		        <li>
+		            Enable devtoolset-8 for newer version of GCC required for compilation.<br>
+		            <pre><code>sudo scl enable devtoolset-8 bash</code></pre>
+		        </li>
+		        <li>
+		            Since we need a higher version of boost than available through the CentOS 7 package manager, we will compile it from source.<br>
+		            <pre><code>wget https://dl.bintray.com/boostorg/release/1.68.0/source/boost_1_68_0.tar.gz
+tar xzvf boost_1_68_0.tar.gz && cd boost_1_68_0
+./bootstrap.sh --prefix=/usr/local/
+./b2 -j$(nproc) -d0 install --with-system --with-filesystem --with-thread --with-date_time --with-chrono --with-regex --with-serialization --with-program_options --with-locale</code></pre>
+		        </li>
+		        <li>
+		            Now we will fetch the source files.<br>
+		            <pre><code>cd ~/ && git clone --recursive https://github.com/xolentum/xolentum</code></pre>
+		        </li>
+		        <li>
+		            Finally, we will start the build.<br>
+		            <pre><code>cd xolentum && cmake3 . && make -j$(nproc)</code></pre>
+		        </li>
+		    </ul>
+		    
+		    <h3 id="centos_8"><strong>CentOS 8</strong></h3>
+		    <ul>
+		        <li>
+		            Update system and install prerequisites.<br>
+		            <pre><code>sudo dnf update -y && sudo dnf install -y git epel-release</code></pre>
+		        </li>
+		        <li>
+		            Install the <code>OKay</code> repository needed for dependencies.
+		            <pre><code>sudo dnf install -y http://repo.okay.com.mx/centos/8/x86_64/release/okay-release-1-2.el8.noarch.rpm</code></pre>
+		        </li>
+		        <li>
+		            Enable the <code>PowerTools</code> repository needed for dependencies.
+		            <pre><code>sudo sed -i 's/enabled=0/enabled=1/g' /etc/yum.repos.d/CentOS-PowerTools.repo</code></pre>
+		        </li>
+		        <li>
+		            Install all other dependencies.<br>
+		            <pre><code>sudo dnf install -y python3 make cmake gcc gcc-c++ pkgconfig boost-devel openssl-devel zeromq-devel openpgm-devel unbound-devel libsodium-devel libunwind-devel xz-devel readline-devel ldns-devel expat-devel gtest-devel doxygen graphviz qt5-linguist hidapi-devel libusb-devel protobuf-devel protobuf-compiler</code></pre>
+		        </li>
+		        <li>
+		            Now we will fetch the source files.<br>
+		            <pre><code>cd ~/ && git clone --recursive https://github.com/xolentum/xolentum</code></pre>
+		        </li>
+		        <li>
+		            Finally, we will start the build.<br>
+		            <pre><code>cd xolentum && cmake . && make -j$(nproc)</code></pre>
+		        </li>
+		    </ul>
+		    
+		    <h3 id="arch_linux"><strong>Arch Linux</strong></h3>
+		    <ul>
+		        <li>
+		            Install all requisites and dependencies.<br>
+		            <pre><code>sudo pacman -Su --needed -y base-devel cmake boost openssl zeromq libpgm unbound libsodium libunwind xz readline ldns expat gtest doxygen graphviz qt5-tools hidapi libusb protobuf</code></pre>
+		        </li>
+		        <li>
+		            Now we will fetch the source files.<br>
+		            <pre><code>cd ~/ && git clone --recursive https://github.com/xolentum/xolentum</code></pre>
+		        </li>
+		        <li>
+		            Finally, we will start the build.<br>
+		            <pre><code>cd xolentum && cmake . && make -j$(nproc)</code></pre>
+		        </li>
+		    </ul>
 		    
 		</div>
 	</section>
 
 	<section id="footer">
 		<ul class="icons">
-			<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-			<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-			<li><a href="#" class="icon brands alt fa-discord"><span class="label">Discord</span></a></li>
-			<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+			<li><a href="https://twitter.com/_xolentum" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+			<li><a href="https://www.facebook.com/xolentum" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+			<li><a href="/chat" class="icon brands alt fa-discord"><span class="label">Discord</span></a></li>
+			<li><a href="https://github.com/xolentum" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
 		</ul>
 		<ul class="copyright">
 			<li>&copy; 2020 Xanther Networks</li><li>All Rights Reserved</li>
