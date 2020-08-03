@@ -74,10 +74,11 @@
 		        <a href="#centos_7"><li>CentOS 7</li></a>
 		        <a href="#centos_8"><li>CentOS 8</li></a>
 		        <a href="#arch_linux"><li>Arch Linux</li></a>
+		        <a href="#windows"><li>Windows</li></a>
 		    </ul>
 		    
 		    <p>
-		        <b><u>NOTE:</u></b> The binaries will be in the <code>/bin</code> directory after a successful build.
+		        <b><u>NOTE:</u></b> The binaries will be in the <code>/build/release/bin</code> directory after a successful build.
 		    </p>
 		    
 		    <hr>
@@ -104,12 +105,12 @@
 		            </ul>
 		        </li>
 		        <li>
-		            Now we will fetch the source files.<br>
-		            <pre><code>cd ~/ && git clone --recursive https://github.com/xolentum/xolentum</code></pre>
+		            Clone the repository.<br>
+		            <pre><code>cd ~/ && git clone --recursive https://github.com/xolentum/xolentum.git</code></pre>
 		        </li>
 		        <li>
-		            Finally, we will start the build.<br>
-		            <pre><code>cd xolentum && cmake . && make -j$(nproc)</code></pre>
+		            Start the build process.<br>
+		            <pre><code>cd xolentum && make release</code></pre>
 		        </li>
 		    </ul>
 
@@ -128,12 +129,12 @@
 		            <pre><code>sudo apt-get install -y libgtest-dev && cd /usr/src/gtest && sudo cmake . && sudo make && sudo mv lib/* /usr/lib/</code></pre>
 		        </li>
 		        <li>
-		            Now we will fetch the source files.<br>
-		            <pre><code>cd ~/ && git clone --recursive https://github.com/xolentum/xolentum</code></pre>
+		            Clone the repository.<br>
+		            <pre><code>cd ~/ && git clone --recursive https://github.com/xolentum/xolentum.git</code></pre>
 		        </li>
 		        <li>
-		            Finally, we will start the build.<br>
-		            <pre><code>cd xolentum && cmake . && make -j$(nproc)</code></pre>
+		            Start the build process.<br>
+		            <pre><code>cd xolentum && make release</code></pre>
 		        </li>
 		    </ul>
 		    
@@ -159,12 +160,12 @@ tar xzvf boost_1_68_0.tar.gz && cd boost_1_68_0
 ./b2 -j$(nproc) -d0 install --with-system --with-filesystem --with-thread --with-date_time --with-chrono --with-regex --with-serialization --with-program_options --with-locale</code></pre>
 		        </li>
 		        <li>
-		            Now we will fetch the source files.<br>
-		            <pre><code>cd ~/ && git clone --recursive https://github.com/xolentum/xolentum</code></pre>
+		            Clone the repository.<br>
+		            <pre><code>cd ~/ && git clone --recursive https://github.com/xolentum/xolentum.git</code></pre>
 		        </li>
 		        <li>
-		            Finally, we will start the build.<br>
-		            <pre><code>cd xolentum && cmake3 . && make -j$(nproc)</code></pre>
+		            Start the build process.<br>
+		            <pre><code>cd xolentum && make release</code></pre>
 		        </li>
 		    </ul>
 		    
@@ -179,7 +180,7 @@ tar xzvf boost_1_68_0.tar.gz && cd boost_1_68_0
 		            <pre><code>sudo dnf install -y http://repo.okay.com.mx/centos/8/x86_64/release/okay-release-1-2.el8.noarch.rpm</code></pre>
 		        </li>
 		        <li>
-		            Enable the <code>PowerTools</code> repository needed for dependencies.
+		            Enable the <code>PowerTools</code> repository needed for some dependencies.
 		            <pre><code>sudo sed -i 's/enabled=0/enabled=1/g' /etc/yum.repos.d/CentOS-PowerTools.repo</code></pre>
 		        </li>
 		        <li>
@@ -187,12 +188,12 @@ tar xzvf boost_1_68_0.tar.gz && cd boost_1_68_0
 		            <pre><code>sudo dnf install -y python3 make cmake gcc gcc-c++ pkgconfig boost-devel openssl-devel zeromq-devel openpgm-devel unbound-devel libsodium-devel libunwind-devel xz-devel readline-devel ldns-devel expat-devel gtest-devel doxygen graphviz qt5-linguist hidapi-devel libusb-devel protobuf-devel protobuf-compiler</code></pre>
 		        </li>
 		        <li>
-		            Now we will fetch the source files.<br>
-		            <pre><code>cd ~/ && git clone --recursive https://github.com/xolentum/xolentum</code></pre>
+		            Clone the repository.<br>
+		            <pre><code>cd ~/ && git clone --recursive https://github.com/xolentum/xolentum.git</code></pre>
 		        </li>
 		        <li>
-		            Finally, we will start the build.<br>
-		            <pre><code>cd xolentum && cmake . && make -j$(nproc)</code></pre>
+		            Start the build process.<br>
+		            <pre><code>cd xolentum && make release</code></pre>
 		        </li>
 		    </ul>
 		    
@@ -203,14 +204,65 @@ tar xzvf boost_1_68_0.tar.gz && cd boost_1_68_0
 		            <pre><code>sudo pacman -Su --needed -y base-devel cmake boost openssl zeromq libpgm unbound libsodium libunwind xz readline ldns expat gtest doxygen graphviz qt5-tools hidapi libusb protobuf</code></pre>
 		        </li>
 		        <li>
-		            Now we will fetch the source files.<br>
-		            <pre><code>cd ~/ && git clone --recursive https://github.com/xolentum/xolentum</code></pre>
+		            Clone the repository.<br>
+		            <pre><code>cd ~/ && git clone --recursive https://github.com/xolentum/xolentum.git</code></pre>
 		        </li>
 		        <li>
-		            Finally, we will start the build.<br>
-		            <pre><code>cd xolentum && cmake . && make -j$(nproc)</code></pre>
+		            Start the build process.<br>
+		            <pre><code>cd xolentum && make release</code></pre>
 		        </li>
 		    </ul>
+		    
+		    <h3 id="windows"><strong>Windows</strong></h3>
+		    <ul>
+                <li>
+                    Download and install the <a href="https://www.msys2.org">MSYS2 installer</a>, either the 64-bit or the 32-bit package, depending on your system.
+                </li>
+                <li>
+                    Open the MSYS shell via the <code>MSYS2 Shell</code> shortcut.
+                </li>
+                <li>
+                    Update packages using pacman.
+                    <pre><code>pacman -Syu</code></pre>
+                </li>
+                <li>
+                    Exit the MSYS shell using <code>Alt+F4</code>
+                </li>
+                <li>
+                    Edit the properties for the <code>MSYS2 Shell</code> shortcut changing "msys2_shell.bat" to "msys2_shell.cmd -mingw64" for 64-bit builds or "msys2_shell.cmd -mingw32" for 32-bit builds
+                </li>
+                <li>Restart MSYS shell via modified shortcut and update packages again using pacman.
+                    <pre><code>pacman -Syu</code></pre>
+                </li>
+                <li>
+                    Install the requesite dependencies.
+                    <ul>
+                        <li>For 64-bit OS:
+                        <pre><code>pacman -S mingw-w64-x86_64-toolchain make mingw-w64-x86_64-cmake mingw-w64-x86_64-boost mingw-w64-x86_64-openssl mingw-w64-x86_64-zeromq mingw-w64-x86_64-libsodium mingw-w64-x86_64-hidapi</code></pre>
+                        </li>
+                        <li>For 32-bit OS:
+                        <pre><code>pacman -S mingw-w64-i686-toolchain make mingw-w64-i686-cmake mingw-w64-i686-boost mingw-w64-i686-openssl mingw-w64-i686-zeromq mingw-w64-i686-libsodium mingw-w64-i686-hidapi</code></pre>
+                        </li>
+                    </ul>
+                </li>
+                <li>Open the MingW shell via MinGW-w64-Win64 Shell shortcut on 64-bit Windows or MinGW-w64-Win64 Shell shortcut on 32-bit Windows. Note that if you are running 64-bit Windows, you will have both 64-bit and 32-bit MinGW shells.
+                <li>
+                <li>Clone the repository.
+                <pre><code>git clone --recursive https://github.com/xolentum/xolentum</code></pre>
+                </li>
+                <li>
+                    Start the build process.
+                    <ul>
+                        <li>For 64-bit OS:
+                        <pre><code>make release-static-win64</code></pre>
+                        </li>
+                        <li>For 32-bit OS:
+                        <pre><code>make release-static-win32</code></pre>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
 		    
 		</div>
 	</section>
