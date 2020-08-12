@@ -386,7 +386,6 @@
                                     <ul>
                                     <li><em>address</em> - string; The address to validate.</li>
                                     <li><em>any_net_type</em> - boolean (Optional); If true, consider addresses belonging to any of the three xolentum networks (mainnet, stagenet, and testnet) valid. Otherwise, only consider an address valid if it belongs to the network on which the rpc-wallet&#39;s current daemon is running (Defaults to false).</li>
-                                    <li><em>allow_openalias</em> - boolean (Optional); If true, consider <a href="https://xolentum.org/resources/openalias.html">OpenAlias-formatted addresses</a> valid (Defaults to false).</li>
                                     </ul>
                                     <p>Outputs:</p>
                                     <ul>
@@ -394,10 +393,9 @@
                                     <li><em>integrated</em> - boolean; True if the given address is an integrated address.</li>
                                     <li><em>subaddress</em> - boolean; True if the given address is a <a href="https://github.com/monero-project/monero/pull/2056">subaddress</a></li>
                                     <li><em>nettype</em> - string; Specifies which of the three Xolentum networks (mainnet, stagenet, and testnet) the address belongs to.</li>
-                                    <li><em>openalias_address</em> - boolean; True if the address is <a href="https://xolentum.org/resources//openalias.html">OpenAlias-formatted</a>.</li>
                                     </ul>
                                     <p>Example:</p>
-                                    <pre><code>$ curl http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">13580</span>/json_rpc -d '{<span class="hljs-string">"jsonrpc"</span>:<span class="hljs-string">"2.0"</span>,<span class="hljs-string">"id"</span>:<span class="hljs-string">"0"</span>,<span class="hljs-string">"method"</span>:<span class="hljs-string">"validate_address"</span>, params={<span class="hljs-string">"address"</span>:<span class="hljs-string">"42go2d3XqA9Mx4HjZoqr93BHspcMxwAUBivs3yJKV1FyTycEcbgjNyEaGNEcgnUE9DDDAXNanzB16YgMt88Sa8cFSm2QcHK"</span>,<span class="hljs-string">"any_net_type"</span>:<span class="hljs-string">"true"</span>,<span class="hljs-string">"allow_openalias"</span>:<span class="hljs-string">"true"</span>},' -H <span class="hljs-symbol">'Content</span>-<span class="hljs-keyword">Type</span>: application/json'
+                                    <pre><code>$ curl http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">13580</span>/json_rpc -d '{<span class="hljs-string">"jsonrpc"</span>:<span class="hljs-string">"2.0"</span>,<span class="hljs-string">"id"</span>:<span class="hljs-string">"0"</span>,<span class="hljs-string">"method"</span>:<span class="hljs-string">"validate_address"</span>, params={<span class="hljs-string">"address"</span>:<span class="hljs-string">"42go2d3XqA9Mx4HjZoqr93BHspcMxwAUBivs3yJKV1FyTycEcbgjNyEaGNEcgnUE9DDDAXNanzB16YgMt88Sa8cFSm2QcHK"</span>,<span class="hljs-string">"any_net_type"</span>:<span class="hljs-string">"true"</span>},' -H <span class="hljs-symbol">'Content</span>-<span class="hljs-keyword">Type</span>: application/json'
                                     {
                                       <span class="hljs-string">"id"</span>: <span class="hljs-string">"0"</span>,
                                       <span class="hljs-string">"jsonrpc"</span>: <span class="hljs-string">"2.0"</span>,
@@ -406,7 +404,6 @@
                                         <span class="hljs-string">"integrated"</span>: <span class="hljs-literal">false</span>,
                                         <span class="hljs-string">"subaddress"</span>: <span class="hljs-literal">false</span>,
                                         <span class="hljs-string">"nettype"</span>: <span class="hljs-string">"mainnet"</span>,
-                                        <span class="hljs-string">"openalias_address"</span>: <span class="hljs-literal">false</span>
                                       }
                                     }
                                     </code></pre><h3 id="get_accounts"><strong>get_accounts</strong></h3>

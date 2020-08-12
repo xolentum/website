@@ -78,7 +78,7 @@
 		    </ul>
 		    
 		    <p>
-		        <b><u>NOTE:</u></b> The binaries will be in the <code>/build/release/bin</code> directory after a successful build.
+		        <b><u>NOTE:</u></b> The binaries will be in the <code>/build/release/bin</code> directory after a successful build. <b>(except <a href="#centos_7">CentOS 7</a>)</b>
 		    </p>
 		    
 		    <hr>
@@ -165,9 +165,10 @@ tar xzvf boost_1_68_0.tar.gz && cd boost_1_68_0
 		        </li>
 		        <li>
 		            Start the build process.<br>
-		            <pre><code>cd xolentum && make release</code></pre>
+		            <pre><code>cd xolentum && cmake3 . && make</code></pre>
 		        </li>
 		    </ul>
+		    The binaries will be in <code>/bin</code> directory when complete. 
 		    
 		    <h3 id="centos_8"><strong>CentOS 8</strong></h3>
 		    <ul>
