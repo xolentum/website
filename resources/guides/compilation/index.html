@@ -41,7 +41,7 @@
 				<ul>
 					<li><a href="/">Home</a></li>
 					<li><a href="/downloads">Downloads</a></li>
-					<li><a href="/blog">Blog</a></li>
+					<li><a href="https://medium.com/@xolentum">Blog</a></li>
 					<li>
 						<a href="#">Community</a>
 						<ul>
@@ -69,16 +69,16 @@
 			    <h2>Compilation Guide</h2>
 			</header>
 		    <ul>
-		        <a href="#ubuntu"><li>Ubuntu 16/18/20</li></a>
+		        <a href="#ubuntu"><li>Ubuntu 18/20</li></a>
 		        <a href="#debian"><li>Debian 9/10</li></a>
-		        <a href="#centos_7"><li>CentOS 7</li></a>
-		        <a href="#centos_8"><li>CentOS 8</li></a>
+		        <!-- a href="#centos_7"><li>CentOS 7</li></a -->
+		        <!-- a href="#centos_8"><li>CentOS 8</li></a -->
 		        <a href="#arch_linux"><li>Arch Linux</li></a>
 		        <a href="#windows"><li>Windows</li></a>
 		    </ul>
 		    
 		    <p>
-		        <b><u>NOTE:</u></b> The binaries will be in the <code>/build/release/bin</code> directory after a successful build. <b>(except <a href="#centos_7">CentOS 7</a>)</b>
+		        <b><u>NOTE:</u></b> The binaries will be in the <code>/build/release/bin</code> directory after a successful build.
 		    </p>
 		    
 		    <hr>
@@ -91,18 +91,7 @@
 		        </li>
 		        <li>
 		            Install other dependencies.<br>
-		            <pre><code>sudo apt install -y build-essential cmake pkg-config libboost-all-dev libssl-dev libzmq3-dev libunbound-dev libsodium-dev libunwind8-dev liblzma-dev libreadline6-dev libldns-dev libexpat1-dev doxygen graphviz libpgm-dev qttools5-dev-tools libhidapi-dev libusb-dev libprotobuf-dev protobuf-compiler</code></pre>
-		        </li>
-		        <li>
-		            On Ubuntu <code>libgtest-dev</code> only includes sources and headers. You must build the library binary manually.<br>
-		            <ul>
-		                <li>For Ubuntu 16 and 18:
-		                    <pre><code>sudo apt-get install -y libgtest-dev && cd /usr/src/gtest && sudo cmake . && sudo make && sudo mv libg* /usr/lib/</code></pre>
-		                </li>
-		                <li>For Ubuntu 20:
-		                    <pre><code>sudo apt-get install -y libgtest-dev && cd /usr/src/gtest && sudo cmake . && sudo make && sudo mv lib/* /usr/lib/</code></pre>
-		                </li>
-		            </ul>
+		            <pre><code>sudo apt-get install -y g++ pkg-config libtool-bin autoconf automake build-essential cmake pkg-config pcsc-tools pcscd libpcsclite1 libudev-dev libhidapi-dev libzmq3-dev libunbound-dev libboost-all-dev libusb-1.0-0-dev libusb-dev libssl-dev libsodium-dev libcurl4-openssl-dev libminiupnpc-dev libunwind8-dev liblzma-dev libreadline6-dev libldns-dev libexpat1-dev libgtest-dev doxygen graphviz libhidapi-libusb0 libnorm-dev libpgm-dev</code></pre>
 		        </li>
 		        <li>
 		            Clone the repository.<br>
@@ -110,7 +99,7 @@
 		        </li>
 		        <li>
 		            Start the build process.<br>
-		            <pre><code>cd xolentum && make release</code></pre>
+		            <pre><code>cd xolentum && make release-static</code></pre>
 		        </li>
 		    </ul>
 
@@ -134,11 +123,11 @@
 		        </li>
 		        <li>
 		            Start the build process.<br>
-		            <pre><code>cd xolentum && make release</code></pre>
+		            <pre><code>cd xolentum && make release-static</code></pre>
 		        </li>
 		    </ul>
 		    
-		    <h3 id="centos_7"><strong>CentOS 7</strong></h3>
+		    <!-- h3 id="centos_7"><strong>CentOS 7</strong></h3>
 		    <ul>
 		        <li>
 		            Update system and install prerequisites.<br>
@@ -167,10 +156,10 @@ tar xzvf boost_1_68_0.tar.gz && cd boost_1_68_0
 		            Start the build process.<br>
 		            <pre><code>cd xolentum && cmake3 . && make</code></pre>
 		        </li>
-		    </ul>
-		    The binaries will be in <code>/bin</code> directory when complete. 
+		        The binaries will be in <code>/bin</code> directory when complete. 
+		    </ul -->
 		    
-		    <h3 id="centos_8"><strong>CentOS 8</strong></h3>
+		    <!-- h3 id="centos_8"><strong>CentOS 8</strong></h3>
 		    <ul>
 		        <li>
 		            Update system and install prerequisites.<br>
@@ -186,7 +175,7 @@ tar xzvf boost_1_68_0.tar.gz && cd boost_1_68_0
 		        </li>
 		        <li>
 		            Install all other dependencies.<br>
-		            <pre><code>sudo dnf install -y python3 make cmake gcc gcc-c++ pkgconfig boost-devel openssl-devel zeromq-devel openpgm-devel unbound-devel libsodium-devel libunwind-devel xz-devel readline-devel ldns-devel expat-devel gtest-devel doxygen graphviz qt5-linguist hidapi-devel libusb-devel protobuf-devel protobuf-compiler</code></pre>
+		            <pre><code>sudo dnf install -y python3 make cmake gcc gcc-c++ pkgconfig boost-devel boost-static openssl-devel zeromq-devel openpgm-devel unbound-devel libsodium-devel libunwind-devel xz-devel readline-devel ldns-devel expat-devel gtest-devel doxygen graphviz qt5-linguist hidapi-devel libusb-devel protobuf-devel protobuf-compiler</code></pre>
 		        </li>
 		        <li>
 		            Clone the repository.<br>
@@ -196,7 +185,7 @@ tar xzvf boost_1_68_0.tar.gz && cd boost_1_68_0
 		            Start the build process.<br>
 		            <pre><code>cd xolentum && make release</code></pre>
 		        </li>
-		    </ul>
+		    </ul -->
 		    
 		    <h3 id="arch_linux"><strong>Arch Linux</strong></h3>
 		    <ul>
