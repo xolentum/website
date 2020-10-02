@@ -71,14 +71,14 @@
 		    <ul>
 		        <a href="#ubuntu"><li>Ubuntu 18/20</li></a>
 		        <a href="#debian"><li>Debian 9/10</li></a>
-		        <!-- a href="#centos_7"><li>CentOS 7</li></a -->
-		        <!-- a href="#centos_8"><li>CentOS 8</li></a -->
+		        <a href="#centos_7"><li>CentOS 7</li></a>
+		        <a href="#centos_8"><li>CentOS 8</li></a>
 		        <a href="#arch_linux"><li>Arch Linux</li></a>
 		        <a href="#windows"><li>Windows</li></a>
 		    </ul>
 		    
 		    <p>
-		        <b><u>NOTE:</u></b> The binaries will be in the <code>/build/release/bin</code> directory after a successful build.
+		        <b><u>NOTE:</u></b> To create a static release, use <code>make release-static</code> instead of <code>make</code> in the last step. <b>(Currently not supported on CentOS 7 and 8)</b>.
 		    </p>
 		    
 		    <hr>
@@ -95,11 +95,11 @@
 		        </li>
 		        <li>
 		            Clone the repository.<br>
-		            <pre><code>cd ~/ && git clone --recursive https://github.com/xolentum/xolentum.git</code></pre>
+		            <pre><code>cd ~/ && git clone --recursive https://github.com/xolentum/xolentum -b master</code></pre>
 		        </li>
 		        <li>
 		            Start the build process.<br>
-		            <pre><code>cd xolentum && make release-static</code></pre>
+		            <pre><code>cd xolentum && make</code></pre>
 		        </li>
 		    </ul>
 
@@ -119,15 +119,15 @@
 		        </li>
 		        <li>
 		            Clone the repository.<br>
-		            <pre><code>cd ~/ && git clone --recursive https://github.com/xolentum/xolentum.git</code></pre>
+		            <pre><code>cd ~/ && git clone --recursive https://github.com/xolentum/xolentum -b master</code></pre>
 		        </li>
 		        <li>
 		            Start the build process.<br>
-		            <pre><code>cd xolentum && make release-static</code></pre>
+		            <pre><code>cd xolentum && make</code></pre>
 		        </li>
 		    </ul>
 		    
-		    <!-- h3 id="centos_7"><strong>CentOS 7</strong></h3>
+		    <h3 id="centos_7"><strong>CentOS 7</strong></h3>
 		    <ul>
 		        <li>
 		            Update system and install prerequisites.<br>
@@ -150,16 +150,16 @@ tar xzvf boost_1_68_0.tar.gz && cd boost_1_68_0
 		        </li>
 		        <li>
 		            Clone the repository.<br>
-		            <pre><code>cd ~/ && git clone --recursive https://github.com/xolentum/xolentum.git</code></pre>
+		            <pre><code>cd ~/ && git clone --recursive https://github.com/xolentum/xolentum -b master</code></pre>
 		        </li>
 		        <li>
 		            Start the build process.<br>
 		            <pre><code>cd xolentum && cmake3 . && make</code></pre>
 		        </li>
 		        The binaries will be in <code>/bin</code> directory when complete. 
-		    </ul -->
+		    </ul>
 		    
-		    <!-- h3 id="centos_8"><strong>CentOS 8</strong></h3>
+		    <h3 id="centos_8"><strong>CentOS 8</strong></h3>
 		    <ul>
 		        <li>
 		            Update system and install prerequisites.<br>
@@ -179,13 +179,13 @@ tar xzvf boost_1_68_0.tar.gz && cd boost_1_68_0
 		        </li>
 		        <li>
 		            Clone the repository.<br>
-		            <pre><code>cd ~/ && git clone --recursive https://github.com/xolentum/xolentum.git</code></pre>
+		            <pre><code>cd ~/ && git clone --recursive https://github.com/xolentum/xolentum -b master</code></pre>
 		        </li>
 		        <li>
 		            Start the build process.<br>
-		            <pre><code>cd xolentum && make release</code></pre>
+		            <pre><code>cd xolentum && make</code></pre>
 		        </li>
-		    </ul -->
+		    </ul>
 		    
 		    <h3 id="arch_linux"><strong>Arch Linux</strong></h3>
 		    <ul>
@@ -195,11 +195,11 @@ tar xzvf boost_1_68_0.tar.gz && cd boost_1_68_0
 		        </li>
 		        <li>
 		            Clone the repository.<br>
-		            <pre><code>cd ~/ && git clone --recursive https://github.com/xolentum/xolentum.git</code></pre>
+		            <pre><code>cd ~/ && git clone --recursive https://github.com/xolentum/xolentum -b master</code></pre>
 		        </li>
 		        <li>
 		            Start the build process.<br>
-		            <pre><code>cd xolentum && make release</code></pre>
+		            <pre><code>cd xolentum && make</code></pre>
 		        </li>
 		    </ul>
 		    
@@ -244,10 +244,10 @@ tar xzvf boost_1_68_0.tar.gz && cd boost_1_68_0
                     Start the build process.
                     <ul>
                         <li>For 64-bit OS:
-                        <pre><code>make release-static-win64</code></pre>
+                        <pre><code>make-win64</code></pre>
                         </li>
                         <li>For 32-bit OS:
-                        <pre><code>make release-static-win32</code></pre>
+                        <pre><code>make-win32</code></pre>
                         </li>
                     </ul>
                 </li>
