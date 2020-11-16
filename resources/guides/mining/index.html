@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
     <head profile="http://www.w3.org/2005/10/profile">
-    	<link rel="icon" type="image/png" href="/images/favicon.png" />
+        <link rel="icon" type="image/png" href="/images/favicon.png" />
     	<meta charset="utf-8" />
     	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     	<meta name="description" content="Xolentum is a decentralized, peer-to-peer and open source digital currency. It's fast, secure and completely private.">
@@ -36,26 +36,28 @@
 			</div>
 		</span>
 		<div class="inner">
-			<nav id="nav" class="collapse">
+    		<nav id="nav" class="collapse">
 				<ul>
 					<li><a href="/">Home</a></li>
 					<li><a href="/downloads">Downloads</a></li>
 					<li><a href="https://medium.com/@xolentum">Blog</a></li>
 					<li>
-						<a href="#">Community</a>
+						<a href="#">Community <i class="fa fa-caret-down" aria-hidden="true"></i></a>
 						<ul>
-							<li><a href="/community/team">Our Team</a></li>
+							<li><a href="/community/team">Team</a></li>
 							<li><a href="/community/services">Services</a></li>
+                            <li><a href="/community/funding">Funding</a></li>
 						</ul>
 					</li>
 					<li>
-						<a href="#">Resources</a>
+						<a href="#">Resources <i class="fa fa-caret-down" aria-hidden="true"></i></a>
 						<ul>
 							<li><a href="/resources/documentation">Documentation</a></li>
 							<li><a href="/resources/guides">Guides</a></li>
 							<li><a href="/resources/press-kit">Press Kit</a></li>
 						</ul>
 					</li>
+					<!-- TODO: Add multilingual support -->
 					<li><a href="#" class="button scrolly">EN</a></li>
 				</ul>
 			</nav>
@@ -74,7 +76,7 @@
 				        You will need to either download prebuilt binaries of the latest XMRig release available <a href="https://github.com/xmrig/xmrig/releases/latest">here</a> or compile it on your system using the guide available <a href="https://xmrig.com/docs/miner#build">here</a>.
 				    </li>
 				    <li>
-				        After downloading/building XMRig on your system, switch to the <code>$XMRIG_ROOT/build</code> directory and create a file called <code>config.json</code> with the following content: 
+				        After downloading/building XMRig on your system, switch to the <code>$XMRIG_ROOT/build</code> directory and create a file called <code>config.json</code> with the following content:
 				        <br>
 				        <h4><u>Using daemon</u></h4>
 				        <pre><code>{
@@ -114,7 +116,7 @@
 }</code></pre><b>Set the mining pool in the <code>pool.address:port</code> format in <code>url</code> field. Do remember to replace <code>xyz123</code> with your Xolentum wallet address. <br>Also, change <code>donate-level</code> to whatever amount you would like to donate to XMRig developers (0 to disable donations).</b>
 				    </li>
 				    <li>
-				        Henceforth, just execute the <code>xmrig.exe</code> file (on Windows) or <code>./xmrig</code> (on Linux) and the miner should start. 
+				        Henceforth, just execute the <code>xmrig.exe</code> file (on Windows) or <code>./xmrig</code> (on Linux) and the miner should start.
 				    </li>
 				</ul>
 			</div>

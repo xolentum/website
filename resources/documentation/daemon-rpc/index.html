@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html>
-	<head profile="http://www.w3.org/2005/10/profile">
+    <head profile="http://www.w3.org/2005/10/profile">
     	<link rel="icon" type="image/png" href="/images/favicon.png" />
     	<meta charset="utf-8" />
     	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -36,26 +36,28 @@
 			</div>
 		</span>
 		<div class="inner">
-			<nav id="nav" class="collapse">
+    		<nav id="nav" class="collapse">
 				<ul>
 					<li><a href="/">Home</a></li>
 					<li><a href="/downloads">Downloads</a></li>
 					<li><a href="https://medium.com/@xolentum">Blog</a></li>
 					<li>
-						<a href="#">Community</a>
+						<a href="#">Community <i class="fa fa-caret-down" aria-hidden="true"></i></a>
 						<ul>
-							<li><a href="/community/team">Our Team</a></li>
+							<li><a href="/community/team">Team</a></li>
 							<li><a href="/community/services">Services</a></li>
+                            <li><a href="/community/funding">Funding</a></li>
 						</ul>
 					</li>
 					<li>
-						<a href="#">Resources</a>
+						<a href="#">Resources <i class="fa fa-caret-down" aria-hidden="true"></i></a>
 						<ul>
 							<li><a href="/resources/documentation">Documentation</a></li>
 							<li><a href="/resources/guides">Guides</a></li>
 							<li><a href="/resources/press-kit">Press Kit</a></li>
 						</ul>
 					</li>
+					<!-- TODO: Add multilingual support -->
 					<li><a href="#" class="button scrolly">EN</a></li>
 				</ul>
 			</nav>
@@ -65,14 +67,14 @@
 		<!-- One -->
 			<section id="one" class="main style1">
 				<div class="container">
-					
+
 							<header class="major">
 								<h2>Daemon RPC Documentation</h2>
 							</header>
 							<p>This is a list of the <code>xolentumd</code> daemon RPC calls, their inputs and outputs, and examples of each.</p>
 							<p>Many RPC calls use the daemon's JSON RPC endpoints while others use their own endpoints, as shown below.</p>
 							<p><b>Note:</b> <i>atomic-units</i> refer to the smallest fraction of 1 XOL according to the <code>xolentumd</code> implementation. 1 XOL = 1e12 <i>atomic-units</i>.</p>
-                            
+
                             <div class="row gtr-150">
                             <div class="col-6 col-12-medium">
                             <header class="major">
@@ -110,7 +112,7 @@
 							<header class="major">
 								<h3>Other RPC Methods</h3>
 							</header>
-							
+
 							<ul>
                                 <li><a href="#get_height">/get_height</a></li>
                                 <li><a href="#get_blocks.bin">/get_blocks.bin</a></li>
@@ -146,15 +148,15 @@
                             </ul>
                             </div>
                             </div>
-                            
+
                             <hr>
-                            
+
                             <header class="major">
 								<h3>JSON RPC Calls</h3>
 							</header>
-                            
+
                             <p>The majority of <code>xolentumd</code> RPC calls use the daemon&#39;s <code>json_rpc</code> interface to request various bits of information. These methods all follow a similar structure, for example:</p>
-                            
+
                             <pre><code>IP=<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>
                                 PORT=<span class="hljs-number">13580</span>
                                 METHOD=<span class="hljs-string">'get_block_header_by_height'</span>
@@ -165,9 +167,9 @@
                                     -d <span class="hljs-string">'{"</span>jsonrpc<span class="hljs-string">":"</span><span class="hljs-number">2.0</span><span class="hljs-string">","</span>id<span class="hljs-string">":"</span><span class="hljs-number">0</span><span class="hljs-string">","</span>method<span class="hljs-string">":"</span><span class="hljs-string">'$METHOD'</span><span class="hljs-string">","</span>params<span class="hljs-string">":'</span>$PARAMS'}<span class="hljs-string">' \
                                     -H '</span>Content-Type: application/json'
                             </code></pre>
-                            
+
                             <p>Some methods include parameters, while others do not. Examples of each JSON RPC method follow.</p>
-                            
+
                             <h3 id="get_block_count"><strong>get_block_count</strong></h3>
                                 <p>Look up how many blocks are in the longest chain known to the node.</p>
                                 <p>Alias: <em>getblockcount</em>.</p>
@@ -178,15 +180,15 @@
                                 <li><em>status</em> - string; General RPC error code. &quot;OK&quot; means everything looks good.</li>
                                 </ul>
                                 <p>Example:</p>
-                                <pre><code>$ curl http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">13580</span>/json_rpc -d '{<span class="hljs-string">"jsonrpc"</span>:<span class="hljs-string">"2.0"</span>,<span class="hljs-string">"id"</span>:<span class="hljs-string">"0"</span>,<span class="hljs-string">"method"</span>:<span class="hljs-string">"get_block_count"</span>}' -H <span class="hljs-symbol">'Content</span>-<span class="hljs-keyword">Type</span>: application/json'  
-                                
-                                {  
-                                  <span class="hljs-string">"id"</span>: <span class="hljs-string">"0"</span>,  
-                                  <span class="hljs-string">"jsonrpc"</span>: <span class="hljs-string">"2.0"</span>,  
-                                  <span class="hljs-string">"result"</span>: {  
-                                    <span class="hljs-string">"count"</span>: <span class="hljs-number">993163</span>,  
-                                    <span class="hljs-string">"status"</span>: <span class="hljs-string">"OK"</span>  
-                                  }  
+                                <pre><code>$ curl http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">13580</span>/json_rpc -d '{<span class="hljs-string">"jsonrpc"</span>:<span class="hljs-string">"2.0"</span>,<span class="hljs-string">"id"</span>:<span class="hljs-string">"0"</span>,<span class="hljs-string">"method"</span>:<span class="hljs-string">"get_block_count"</span>}' -H <span class="hljs-symbol">'Content</span>-<span class="hljs-keyword">Type</span>: application/json'
+
+                                {
+                                  <span class="hljs-string">"id"</span>: <span class="hljs-string">"0"</span>,
+                                  <span class="hljs-string">"jsonrpc"</span>: <span class="hljs-string">"2.0"</span>,
+                                  <span class="hljs-string">"result"</span>: {
+                                    <span class="hljs-string">"count"</span>: <span class="hljs-number">993163</span>,
+                                    <span class="hljs-string">"status"</span>: <span class="hljs-string">"OK"</span>
+                                  }
                                 }
                                 </code></pre><h3 id="on_get_block_hash"><strong>on_get_block_hash</strong></h3>
                                 <p>Look up a block&#39;s hash by its height.</p>
@@ -201,7 +203,7 @@
                                 </ul>
                                 <p>Example:</p>
                                 <pre><code>$ curl http://<span class="hljs-number">127.0.0.1:13580</span>/json_rpc -d '{<span class="hljs-string">"jsonrpc"</span>:<span class="hljs-string">"2.0"</span>,<span class="hljs-string">"id"</span>:<span class="hljs-string">"0"</span>,<span class="hljs-string">"method"</span>:<span class="hljs-string">"on_get_block_hash"</span>,<span class="hljs-string">"params"</span>:<span class="hljs-string">[912345]</span>}' -H 'Content-Type: application/json'
-                                
+
                                 {
                                   <span class="hljs-string">"id"</span>: <span class="hljs-string">"0"</span>,
                                   <span class="hljs-string">"jsonrpc"</span>: <span class="hljs-string">"2.0"</span>,
@@ -229,7 +231,7 @@
                                 </ul>
                                 <p>Example:</p>
                                 <pre><code>$ curl http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">13580</span>/json_rpc -d '{<span class="hljs-string">"jsonrpc"</span>:<span class="hljs-string">"2.0"</span>,<span class="hljs-string">"id"</span>:<span class="hljs-string">"0"</span>,<span class="hljs-string">"method"</span>:<span class="hljs-string">"get_block_template"</span>,<span class="hljs-string">"params"</span>:{<span class="hljs-string">"wallet_address"</span>:<span class="hljs-string">"44GBHzv6ZyQdJkjqZje6KLZ3xSyN1hBSFAnLP6EAqJtCRVzMzZmeXTC2AHKDS9aEDTRKmo6a6o9r9j86pYfhCWDkKjbtcns"</span>,<span class="hljs-string">"reserve_size"</span>:<span class="hljs-number">60</span>}' -H <span class="hljs-symbol">'Content</span>-<span class="hljs-keyword">Type</span>: application/json'
-                                
+
                                 {
                                   <span class="hljs-string">"id"</span>: <span class="hljs-string">"0"</span>,
                                   <span class="hljs-string">"jsonrpc"</span>: <span class="hljs-string">"2.0"</span>,
@@ -258,7 +260,7 @@
                                 </ul>
                                 <p>In this example, a block blob which has not been mined is submitted:</p>
                                 <pre><code>$ curl http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">13580</span>/json_rpc -d '{<span class="hljs-string">"jsonrpc"</span>:<span class="hljs-string">"2.0"</span>,<span class="hljs-string">"id"</span>:<span class="hljs-string">"0"</span>,<span class="hljs-string">"method"</span>:<span class="hljs-string">"submit_block"</span>,<span class="hljs-string">"params"</span>:[<span class="hljs-string">"0707e6bdfedc053771512f1bc27c62731ae9e8f2443db64ce742f4e57f5cf8d393de28551e441a0000000002fb830a01ffbf830a018cfe88bee283060274c0aae2ef5730e680308d9c00b6da59187ad0352efe3c71d36eeeb28782f29f2501bd56b952c3ddc3e350c2631d3a5086cac172c56893831228b17de296ff4669de020200000000"</span>]' -H <span class="hljs-symbol">'Content</span>-<span class="hljs-keyword">Type</span>: application/json'
-                                
+
                                 {
                                   <span class="hljs-string">"id"</span>: <span class="hljs-string">"0"</span>,
                                   <span class="hljs-string">"jsonrpc"</span>: <span class="hljs-string">"2.0"</span>,
@@ -294,7 +296,7 @@
                                 </ul>
                                 <p>In this example, the most recent block (1562023 at the time) is returned:</p>
                                 <pre><code>$ curl http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">13580</span>/json_rpc -d '{<span class="hljs-string">"jsonrpc"</span>:<span class="hljs-string">"2.0"</span>,<span class="hljs-string">"id"</span>:<span class="hljs-string">"0"</span>,<span class="hljs-string">"method"</span>:<span class="hljs-string">"get_last_block_header"</span>}' -H <span class="hljs-symbol">'Content</span>-<span class="hljs-keyword">Type</span>: application/json'
-                                
+
                                 {
                                   <span class="hljs-string">"id"</span>: <span class="hljs-string">"0"</span>,
                                   <span class="hljs-string">"jsonrpc"</span>: <span class="hljs-string">"2.0"</span>,
@@ -333,7 +335,7 @@
                                 </ul>
                                 <p>In this example, block 912345 is looked up by its hash:</p>
                                 <pre><code>$ curl http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">13580</span>/json_rpc -d '{<span class="hljs-string">"jsonrpc"</span>:<span class="hljs-string">"2.0"</span>,<span class="hljs-string">"id"</span>:<span class="hljs-string">"0"</span>,<span class="hljs-string">"method"</span>:<span class="hljs-string">"get_block_header_by_hash"</span>,<span class="hljs-string">"params"</span>:{<span class="hljs-string">"hash"</span>:<span class="hljs-string">"e22cf75f39ae720e8b71b3d120a5ac03f0db50bba6379e2850975b4859190bc6"</span>}}' -H <span class="hljs-symbol">'Content</span>-<span class="hljs-keyword">Type</span>: application/json'
-                                
+
                                 {
                                   <span class="hljs-string">"id"</span>: <span class="hljs-string">"0"</span>,
                                   <span class="hljs-string">"jsonrpc"</span>: <span class="hljs-string">"2.0"</span>,
@@ -372,7 +374,7 @@
                                 </ul>
                                 <p>In this example, block 912345 is looked up by its height (notice that the returned information is the same as in the previous example):</p>
                                 <pre><code>$ curl http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">13580</span>/json_rpc -d '{<span class="hljs-string">"jsonrpc"</span>:<span class="hljs-string">"2.0"</span>,<span class="hljs-string">"id"</span>:<span class="hljs-string">"0"</span>,<span class="hljs-string">"method"</span>:<span class="hljs-string">"get_block_header_by_height"</span>,<span class="hljs-string">"params"</span>:{<span class="hljs-string">"height"</span>:<span class="hljs-number">912345</span>}}' -H <span class="hljs-symbol">'Content</span>-<span class="hljs-keyword">Type</span>: application/json'
-                                
+
                                 {
                                   <span class="hljs-string">"id"</span>: <span class="hljs-string">"0"</span>,
                                   <span class="hljs-string">"jsonrpc"</span>: <span class="hljs-string">"2.0"</span>,
@@ -412,7 +414,7 @@
                                 </ul>
                                 <p>In this example, blocks range from height 1545999 to 1546000 is looked up (notice that the returned informations are ascending order and that it is at the April 2018 network upgrade time):</p>
                                 <pre><code>$ curl http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">13580</span>/json_rpc -d '{<span class="hljs-string">"jsonrpc"</span>:<span class="hljs-string">"2.0"</span>,<span class="hljs-string">"id"</span>:<span class="hljs-string">"0"</span>,<span class="hljs-string">"method"</span>:<span class="hljs-string">"get_block_headers_range"</span>,<span class="hljs-string">"params"</span>:{<span class="hljs-string">"start_height"</span>:<span class="hljs-number">1545999</span>,<span class="hljs-string">"end_height"</span>:<span class="hljs-number">1546000</span>}}' -H <span class="hljs-symbol">'Content</span>-<span class="hljs-keyword">Type</span>: application/json'
-                                
+
                                 {
                                   <span class="hljs-string">"id"</span>: <span class="hljs-string">"0"</span>,
                                   <span class="hljs-string">"jsonrpc"</span>: <span class="hljs-string">"2.0"</span>,
@@ -499,7 +501,7 @@
                                 <p><strong>Look up by height:</strong></p>
                                 <p>In the following example, block 912345 is looked up by its height. Note that block 912345 does not have any non-coinbase transactions. (See the next example for a block with extra transactions):</p>
                                 <pre><code>$ curl http://127.0.0.1:13580/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_block","params":{"height":912345}}' -H 'Content-Type: application/json'
-                                
+
                                 {
                                   "id": "0",
                                   "jsonrpc": "2.0",
@@ -529,7 +531,7 @@
                                 </code></pre><p><strong>Look up by hash:</strong></p>
                                 <p>In the following example, block 993056 is looked up by its hash. Note that block 993056 has 3 non-coinbase transactions:</p>
                                 <pre><code>$ curl http://127.0.0.1:13580/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_block","params":{"hash":"510ee3c4e14330a7b96e883c323a60ebd1b5556ac1262d0bc03c24a3b785516f"}}' -H 'Content-Type: application/json'
-                                
+
                                 {
                                   "id": "0",
                                   "jsonrpc": "2.0",
@@ -590,7 +592,7 @@
                                 </ul>
                                 <p>Following is an example of <code>get_connections</code> and it&#39;s return:</p>
                                 <pre><code>$ curl http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">13580</span>/json_rpc -d '{<span class="hljs-string">"jsonrpc"</span>:<span class="hljs-string">"2.0"</span>,<span class="hljs-string">"id"</span>:<span class="hljs-string">"0"</span>,<span class="hljs-string">"method"</span>:<span class="hljs-string">"get_connections"</span>}' -H <span class="hljs-symbol">'Content</span>-<span class="hljs-keyword">Type</span>: application/json'
-                                
+
                                 {
                                   <span class="hljs-string">"id"</span>: <span class="hljs-string">"0"</span>,
                                   <span class="hljs-string">"jsonrpc"</span>: <span class="hljs-string">"2.0"</span>,
@@ -664,7 +666,7 @@
                                 </ul>
                                 <p>Following is an example <code>get_info</code> call and its return:</p>
                                 <pre><code>$ curl http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">13580</span>/json_rpc -d '{<span class="hljs-string">"jsonrpc"</span>:<span class="hljs-string">"2.0"</span>,<span class="hljs-string">"id"</span>:<span class="hljs-string">"0"</span>,<span class="hljs-string">"method"</span>:<span class="hljs-string">"get_info"</span>}' -H <span class="hljs-symbol">'Content</span>-<span class="hljs-keyword">Type</span>: application/json'
-                                
+
                                 {
                                   <span class="hljs-string">"id"</span>: <span class="hljs-string">"0"</span>,
                                   <span class="hljs-string">"jsonrpc"</span>: <span class="hljs-string">"2.0"</span>,
@@ -716,7 +718,7 @@
                                 </ul>
                                 <p>Example:</p>
                                 <pre><code>$ curl http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">13580</span>/json_rpc -d '{<span class="hljs-string">"jsonrpc"</span>:<span class="hljs-string">"2.0"</span>,<span class="hljs-string">"id"</span>:<span class="hljs-string">"0"</span>,<span class="hljs-string">"method"</span>:<span class="hljs-string">"hard_fork_info"</span>}' -H <span class="hljs-symbol">'Content</span>-<span class="hljs-keyword">Type</span>: application/json'
-                                
+
                                 {
                                   <span class="hljs-string">"id"</span>: <span class="hljs-string">"0"</span>,
                                   <span class="hljs-string">"jsonrpc"</span>: <span class="hljs-string">"2.0"</span>,
@@ -753,7 +755,7 @@
                                 <p><strong>banning by host</strong></p>
                                 <p>In the following example, host is banned with its IP address string-formatted as A.B.C.D:</p>
                                 <pre><code>$ curl http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">13580</span>/json_rpc -d '{<span class="hljs-string">"jsonrpc"</span>:<span class="hljs-string">"2.0"</span>,<span class="hljs-string">"id"</span>:<span class="hljs-string">"0"</span>,<span class="hljs-string">"method"</span>:<span class="hljs-string">"set_bans"</span>,<span class="hljs-string">"params"</span>:{<span class="hljs-string">"bans"</span>:[{<span class="hljs-string">"host"</span>:<span class="hljs-string">"192.168.1.51"</span>,<span class="hljs-string">"ban"</span>:<span class="hljs-literal">true</span>,<span class="hljs-string">"seconds"</span>:<span class="hljs-number">30</span>}]}}' -H  <span class="hljs-symbol">'Content</span>-<span class="hljs-keyword">Type</span>: application/json'
-                                
+
                                 {
                                   <span class="hljs-string">"id"</span>: <span class="hljs-string">"0"</span>,
                                   <span class="hljs-string">"jsonrpc"</span>: <span class="hljs-string">"2.0"</span>,
@@ -764,7 +766,7 @@
                                 </code></pre><p><strong>banning by ip</strong></p>
                                 <p>In the following example, integer-formatted IP is banned:</p>
                                 <pre><code>$ curl http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">13580</span>/json_rpc -d '{<span class="hljs-string">"jsonrpc"</span>:<span class="hljs-string">"2.0"</span>,<span class="hljs-string">"id"</span>:<span class="hljs-string">"0"</span>,<span class="hljs-string">"method"</span>:<span class="hljs-string">"set_bans"</span>,<span class="hljs-string">"params"</span>:{<span class="hljs-string">"bans"</span>:[{<span class="hljs-string">"ip"</span>:<span class="hljs-number">838969536</span>,<span class="hljs-string">"ban"</span>:<span class="hljs-literal">true</span>,<span class="hljs-string">"seconds"</span>:<span class="hljs-number">30</span>}]}}' -H  <span class="hljs-symbol">'Content</span>-<span class="hljs-keyword">Type</span>: application/json'
-                                
+
                                 {
                                   <span class="hljs-string">"id"</span>: <span class="hljs-string">"0"</span>,
                                   <span class="hljs-string">"jsonrpc"</span>: <span class="hljs-string">"2.0"</span>,
@@ -788,7 +790,7 @@
                                 </ul>
                                 <p>Example:</p>
                                 <pre><code>$ curl http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">13580</span>/json_rpc -d '{<span class="hljs-string">"jsonrpc"</span>:<span class="hljs-string">"2.0"</span>,<span class="hljs-string">"id"</span>:<span class="hljs-string">"0"</span>,<span class="hljs-string">"method"</span>:<span class="hljs-string">"get_bans"</span>}' -H <span class="hljs-symbol">'Content</span>-<span class="hljs-keyword">Type</span>: application/json'
-                                
+
                                 {
                                   <span class="hljs-string">"id"</span>: <span class="hljs-string">"0"</span>,
                                   <span class="hljs-string">"jsonrpc"</span>: <span class="hljs-string">"2.0"</span>,
@@ -818,7 +820,7 @@
                                 </ul>
                                 <p>Example:</p>
                                 <pre><code>$ curl http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">13580</span>/json_rpc -d '{<span class="hljs-string">"jsonrpc"</span>:<span class="hljs-string">"2.0"</span>,<span class="hljs-string">"id"</span>:<span class="hljs-string">"0"</span>,<span class="hljs-string">"method"</span>:<span class="hljs-string">"flush_txpool"</span>,<span class="hljs-string">"params"</span>:{<span class="hljs-string">"txids"</span>:[<span class="hljs-string">"dc16fa8eaffe1484ca9014ea050e13131d3acf23b419f33bb4cc0b32b6c49308"</span>,<span class="hljs-string">""</span>]}}' -H <span class="hljs-symbol">'Content</span>-<span class="hljs-keyword">Type</span>: application/json'
-                                
+
                                 {
                                   <span class="hljs-string">"id"</span>: <span class="hljs-string">"0"</span>,
                                   <span class="hljs-string">"jsonrpc"</span>: <span class="hljs-string">"2.0"</span>,
@@ -851,7 +853,7 @@
                                 </ul>
                                 <p>Example:</p>
                                 <pre><code>$ curl http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">13580</span>/json_rpc -d '{<span class="hljs-string">"jsonrpc"</span>:<span class="hljs-string">"2.0"</span>,<span class="hljs-string">"id"</span>:<span class="hljs-string">"0"</span>,<span class="hljs-string">"method"</span>:<span class="hljs-string">"get_output_histogram"</span>,<span class="hljs-string">"params"</span>:{<span class="hljs-string">"amounts"</span>:[<span class="hljs-number">20000000000</span>]}}' -H <span class="hljs-symbol">'Content</span>-<span class="hljs-keyword">Type</span>: application/json'
-                                
+
                                 {
                                   <span class="hljs-string">"id"</span>: <span class="hljs-string">"0"</span>,
                                   <span class="hljs-string">"jsonrpc"</span>: <span class="hljs-string">"2.0"</span>,
@@ -882,7 +884,7 @@
                                 </ul>
                                 <p>Example:</p>
                                 <pre><code>$ curl http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">13580</span>/json_rpc -d '{<span class="hljs-string">"jsonrpc"</span>:<span class="hljs-string">"2.0"</span>,<span class="hljs-string">"id"</span>:<span class="hljs-string">"0"</span>,<span class="hljs-string">"method"</span>:<span class="hljs-string">"get_coinbase_tx_sum"</span>,<span class="hljs-string">"params"</span>:{<span class="hljs-string">"height"</span>:<span class="hljs-number">1563078</span>,<span class="hljs-string">"count"</span>:<span class="hljs-number">2</span>}}' -H <span class="hljs-symbol">'Content</span>-<span class="hljs-keyword">Type</span>: application/json'
-                                
+
                                 {
                                   <span class="hljs-string">"id"</span>: <span class="hljs-string">"0"</span>,
                                   <span class="hljs-string">"jsonrpc"</span>: <span class="hljs-string">"2.0"</span>,
@@ -904,7 +906,7 @@
                                 </ul>
                                 <p>Example:</p>
                                 <pre><code>$ curl http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">13580</span>/json_rpc -d '{<span class="hljs-string">"jsonrpc"</span>:<span class="hljs-string">"2.0"</span>,<span class="hljs-string">"id"</span>:<span class="hljs-string">"0"</span>,<span class="hljs-string">"method"</span>:<span class="hljs-string">"get_version"</span>}' -H <span class="hljs-symbol">'Content</span>-<span class="hljs-keyword">Type</span>: application/json'
-                                
+
                                 {
                                   <span class="hljs-string">"id"</span>: <span class="hljs-string">"0"</span>,
                                   <span class="hljs-string">"jsonrpc"</span>: <span class="hljs-string">"2.0"</span>,
@@ -930,7 +932,7 @@
                                 </ul>
                                 <p>Example:</p>
                                 <pre><code>$ curl http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">13580</span>/json_rpc -d '{<span class="hljs-string">"jsonrpc"</span>:<span class="hljs-string">"2.0"</span>,<span class="hljs-string">"id"</span>:<span class="hljs-string">"0"</span>,<span class="hljs-string">"method"</span>:<span class="hljs-string">"get_fee_estimate"</span>}' -H <span class="hljs-symbol">'Content</span>-<span class="hljs-keyword">Type</span>: application/json'
-                                
+
                                 {
                                   <span class="hljs-string">"id"</span>: <span class="hljs-string">"0"</span>,
                                   <span class="hljs-string">"jsonrpc"</span>: <span class="hljs-string">"2.0"</span>,
@@ -957,7 +959,7 @@
                                 </ul>
                                 <p>Example:</p>
                                 <pre><code>$ curl http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">13580</span>/json_rpc -d '{<span class="hljs-string">"jsonrpc"</span>:<span class="hljs-string">"2.0"</span>,<span class="hljs-string">"id"</span>:<span class="hljs-string">"0"</span>,<span class="hljs-string">"method"</span>:<span class="hljs-string">"get_alternate_chains"</span>}' -H <span class="hljs-symbol">'Content</span>-<span class="hljs-keyword">Type</span>: application/json'
-                                
+
                                 {
                                   <span class="hljs-string">"id"</span>: <span class="hljs-string">"0"</span>,
                                   <span class="hljs-string">"jsonrpc"</span>: <span class="hljs-string">"2.0"</span>,
@@ -984,7 +986,7 @@
                                 </ul>
                                 <p>Example:</p>
                                 <pre><code>$ curl http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">13580</span>/json_rpc -d '{<span class="hljs-string">"jsonrpc"</span>:<span class="hljs-string">"2.0"</span>,<span class="hljs-string">"id"</span>:<span class="hljs-string">"0"</span>,<span class="hljs-string">"method"</span>:<span class="hljs-string">"relay_tx"</span>,<span class="hljs-string">"params"</span>:{<span class="hljs-string">"txids"</span>:[<span class="hljs-string">"9fd75c429cbe52da9a52f2ffc5fbd107fe7fd2099c0d8de274dc8a67e0c98613"</span>]}}' -H <span class="hljs-symbol">'Content</span>-<span class="hljs-keyword">Type</span>: application/json'
-                                
+
                                 {
                                   <span class="hljs-string">"id"</span>: <span class="hljs-string">"0"</span>,
                                   <span class="hljs-string">"jsonrpc"</span>: <span class="hljs-string">"2.0"</span>,
@@ -1018,7 +1020,7 @@
                                 </ul>
                                 <p>Example:</p>
                                 <pre><code>$ curl http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">13580</span>/json_rpc -d '{<span class="hljs-string">"jsonrpc"</span>:<span class="hljs-string">"2.0"</span>,<span class="hljs-string">"id"</span>:<span class="hljs-string">"0"</span>,<span class="hljs-string">"method"</span>:<span class="hljs-string">"sync_info"</span>}' -H <span class="hljs-symbol">'Content</span>-<span class="hljs-keyword">Type</span>: application/json'
-                                
+
                                 {
                                   <span class="hljs-string">"id"</span>: <span class="hljs-string">"0"</span>,
                                   <span class="hljs-string">"jsonrpc"</span>: <span class="hljs-string">"2.0"</span>,
@@ -1080,7 +1082,7 @@
                                 </ul>
                                 <p>Example:</p>
                                 <pre><code>$ curl http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">13580</span>/json_rpc -d '{<span class="hljs-string">"jsonrpc"</span>:<span class="hljs-string">"2.0"</span>,<span class="hljs-string">"id"</span>:<span class="hljs-string">"0"</span>,<span class="hljs-string">"method"</span>:<span class="hljs-string">"get_txpool_backlog"</span>}' -H <span class="hljs-symbol">'Content</span>-<span class="hljs-keyword">Type</span>: application/json'
-                                
+
                                 {
                                   <span class="hljs-string">"id"</span>: <span class="hljs-string">"0"</span>,
                                   <span class="hljs-string">"jsonrpc"</span>: <span class="hljs-string">"2.0"</span>,
@@ -1112,7 +1114,7 @@
                                 </ul>
                                 <p>Example:</p>
                                 <pre><code>$ curl http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">13580</span>/json_rpc -d '{<span class="hljs-string">"jsonrpc"</span>:<span class="hljs-string">"2.0"</span>,<span class="hljs-string">"id"</span>:<span class="hljs-string">"0"</span>,<span class="hljs-string">"method"</span>:<span class="hljs-string">"get_output_distribution"</span>,<span class="hljs-string">"params"</span>:{<span class="hljs-string">"amounts"</span>:[<span class="hljs-number">628780000</span>],<span class="hljs-string">"from_height"</span>:<span class="hljs-number">1462078</span>}}' -H <span class="hljs-symbol">'Content</span>-<span class="hljs-keyword">Type</span>: application/json'
-                                
+
                                 {
                                   <span class="hljs-string">"id"</span>: <span class="hljs-string">"0"</span>,
                                   <span class="hljs-string">"jsonrpc"</span>: <span class="hljs-string">"2.0"</span>,
@@ -1129,11 +1131,11 @@
                                 </code></pre>
 
                             <hr>
-                            
+
                             <header class="major">
 								<h3>Other RPC Calls</h3>
 							</header>
-                            
+
                             <p>Not all daemon RPC calls use the JSON_RPC interface. This section gives examples of these calls.</p>
                             <p>The data structure for these calls is different than the JSON RPC calls. Whereas the JSON RPC methods were called using the <code>/json_rpc</code> extension and specifying a method, these methods are called at their own extensions. For example:</p>
                             <pre><code>IP=127.0.0.1
@@ -1158,7 +1160,7 @@
                                 <li><em>untrusted</em> - boolean; States if the result is obtained using the bootstrap mode, and is therefore not trusted (<code>true</code>), or when the daemon is fully synced (<code>false</code>).</li>
                                 </ul>
                                 <pre><code><span class="hljs-variable">$ </span>curl <span class="hljs-symbol">http:</span>/<span class="hljs-regexp">/127.0.0.1:13580/get</span>_height -H <span class="hljs-string">'Content-Type: application/json'</span>
-                                
+
                                 {
                                   <span class="hljs-string">"height"</span>: <span class="hljs-number">1564055</span>,
                                   <span class="hljs-string">"status"</span>: <span class="hljs-string">"OK"</span>,
@@ -1190,10 +1192,10 @@
                                 </ul>
                                 <!-- Cannot get this working
                                 Example:
-                                
+
                                 ```
                                 $ curl http://127.0.0.1:13580/get_blocks.bin -d '{"block_ids":["d109a406528a7b44fef8bc03e75eaabb0f919f852884b43b550b8b3be80a49e7"],"start_height":1562062}' -H 'Content-Type: application/json'
-                                
+
                                 ```
                                 --->
                                 <h3 id="get_blocks_by_height.bin"><strong>/get_blocks_by_height.bin</strong></h3>
@@ -1211,12 +1213,12 @@
                                 </ul>
                                 <!-- Cannot get this working
                                 Example:
-                                
+
                                 ```
                                 $ echo -e '\x7B\x22\x68\x65\x69\x67\x68\x74\x73\x22\x3A\x5B\x31\x35\x36\x34\x32\x34\x36\x5D\x7D\x' | curl --data-binary @- http://127.0.0.1:13580/get_blocks_by_height.bin
                                 $ echo -e '1564246' | curl --data-binary @- http://127.0.0.1:13580/get_blocks_by_height.bin
                                 curl http://127.0.0.1:13580/get_blocks_by_height.bin --data-binary '{"heights":[1564246]}'
-                                
+
                                 ```
                                 --->
                                 <h3 id="get_hashes.bin"><strong>/get_hashes.bin</strong></h3>
@@ -1237,10 +1239,10 @@
                                 </ul>
                                 <!-- Cannot get this working
                                 Example:
-                                
+
                                 ```
                                 $ curl http://127.0.0.1:13580/get_hashes.bin -d '{"block_ids":["d109a406528a7b44fef8bc03e75eaabb0f919f852884b43b550b8b3be80a49e7"],"start_height":1562062}' -H 'Content-Type: application/json'
-                                
+
                                 ```
                                 --->
                                 <h3 id="get_o_indexes.bin"><strong>/get_o_indexes.bin</strong></h3>
@@ -1258,10 +1260,10 @@
                                 </ul>
                                 <!-- Cannot get this working
                                 Example:
-                                
+
                                 ```
                                 $ curl http://127.0.0.1:13580/get_o_indexes.bin --data-binary '{"txid":"d6e48158472848e6687173a91ae6eebfa3e1d778e65252ee99d7515d63090408"}'
-                                
+
                                 ```
                                 --->
                                 <h3 id="get_outs.bin"><strong>/get_outs.bin</strong></h3>
@@ -1291,10 +1293,10 @@
                                 </ul>
                                 <!-- Cannot get this working
                                 Example:
-                                
+
                                 ```
                                 $ curl http://127.0.0.1:13580/get_o_indexes.bin --data-binary '{"txid":"d6e48158472848e6687173a91ae6eebfa3e1d778e65252ee99d7515d63090408"}'
-                                
+
                                 ```
                                 --->
                                 <h3 id="get_transactions"><strong>/get_transactions</strong></h3>
@@ -1349,7 +1351,7 @@
                                 </ul>
                                 <p>Example 1: Return transaction information in binary format.</p>
                                 <pre><code>$ curl http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">13580</span>/get_transactions -d '{<span class="hljs-string">"txs_hashes"</span>:[<span class="hljs-string">"d6e48158472848e6687173a91ae6eebfa3e1d778e65252ee99d7515d63090408"</span>]}' -H <span class="hljs-symbol">'Content</span>-<span class="hljs-keyword">Type</span>: application/json'
-                                
+
                                 {
                                   <span class="hljs-string">"status"</span>: <span class="hljs-string">"OK"</span>,
                                   <span class="hljs-string">"txs"</span>: [{
@@ -1367,7 +1369,7 @@
                                 }
                                 </code></pre><p>Example 2: Decode returned transaction information in JSON format. Note: the &quot;vin&quot;, &quot;vout&quot; and &quot;signatures&quot; list have been truncated in the displayed return for space considerations.</p>
                                 <pre><code>$ curl http://127.0.0.1:13580/get_transactions -d '{"txs_hashes":["d6e48158472848e6687173a91ae6eebfa3e1d778e65252ee99d7515d63090408"],"decode_as_json":true}' -H 'Content-Type: application/json'
-                                
+
                                 {
                                   "status": "OK",
                                   "txs": [{
@@ -1386,7 +1388,7 @@
                                 }
                                 </code></pre><p>Example 3: Returned a missed (unexisting) transaction.</p>
                                 <pre><code>curl http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">13580</span>/get_transactions -d '{<span class="hljs-string">"txs_hashes"</span>:[<span class="hljs-string">"d6e48158472848e6687173a91ae6eebfa3e1d778e65252ee99d7515d63090409"</span>]}' -H <span class="hljs-symbol">'Content</span>-<span class="hljs-keyword">Type</span>: application/json'
-                                
+
                                 {
                                   <span class="hljs-string">"missed_tx"</span>: [<span class="hljs-string">"d6e48158472848e6687173a91ae6eebfa3e1d778e65252ee99d7515d63090409"</span>],
                                   <span class="hljs-string">"status"</span>: <span class="hljs-string">"OK"</span>,
@@ -1404,7 +1406,7 @@
                                 </ul>
                                 <p>Example:</p>
                                 <pre><code><span class="hljs-variable">$ </span>curl <span class="hljs-symbol">http:</span>/<span class="hljs-regexp">/127.0.0.1:13580/get</span>_alt_blocks_hashes -H <span class="hljs-string">'Content-Type: application/json'</span>
-                                
+
                                 {
                                   <span class="hljs-string">"blks_hashes"</span>: [<span class="hljs-string">"9c2277c5470234be8b32382cdf8094a103aba4fcd5e875a6fc159dc2ec00e011"</span>,<span class="hljs-string">"637c0e0f0558e284493f38a5fcca3615db59458d90d3a5eff0a18ff59b83f46f"</span>,<span class="hljs-string">"6f3adc174a2e8082819ebb965c96a095e3e8b63929ad9be2d705ad9c086a6b1c"</span>,<span class="hljs-string">"697cf03c89a9b118f7bdf11b1b3a6a028d7b3617d2d0ed91322c5709acf75625"</span>,<span class="hljs-string">"d99b3cf3ac6f17157ac7526782a3c3b9537f89d07e069f9ce7821d74bd9cad0e"</span>,<span class="hljs-string">"e97b62109a6303233dcd697fa8545c9fcbc0bf8ed2268fede57ddfc36d8c939c"</span>,<span class="hljs-string">"70ff822066a53ad64b04885c89bbe5ce3e537cdc1f7fa0dc55317986f01d1788"</span>,<span class="hljs-string">"b0d36b209bd0d4442b55ea2f66b5c633f522401f921f5a85ea6f113fd2988866"</span>],
                                   <span class="hljs-string">"status"</span>: <span class="hljs-string">"OK"</span>,
@@ -1425,7 +1427,7 @@
                                 </ul>
                                 <p>Example:</p>
                                 <pre><code>$ curl http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">13580</span>/is_key_image_spent -d '{<span class="hljs-string">"key_images"</span>:[<span class="hljs-string">"8d1bd8181bf7d857bdb281e0153d84cd55a3fcaa57c3e570f4a49f935850b5e3"</span>,<span class="hljs-string">"7319134bfc50668251f5b899c66b005805ee255c136f0e1cecbb0f3a912e09d4"</span>]}' -H <span class="hljs-symbol">'Content</span>-<span class="hljs-keyword">Type</span>: application/json'
-                                
+
                                 {
                                   <span class="hljs-string">"spent_status"</span>: [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>],
                                   <span class="hljs-string">"status"</span>: <span class="hljs-string">"OK"</span>
@@ -1472,7 +1474,7 @@
                                 </ul>
                                 <p>Example:</p>
                                 <pre><code>$ curl http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">13580</span>/start_mining -d '{<span class="hljs-string">"do_background_mining"</span>:<span class="hljs-literal">false</span>,<span class="hljs-string">"ignore_battery"</span>:<span class="hljs-literal">true</span>,<span class="hljs-string">"miner_address"</span>:<span class="hljs-string">"47xu3gQpF569au9C2ajo5SSMrWji6xnoE5vhr94EzFRaKAGw6hEGFXYAwVADKuRpzsjiU1PtmaVgcjUJF89ghGPhUXkndHc"</span>,<span class="hljs-string">"threads_count"</span>:<span class="hljs-number">1</span>}' -H <span class="hljs-symbol">'Content</span>-<span class="hljs-keyword">Type</span>: application/json'
-                                
+
                                 {
                                   <span class="hljs-string">"status"</span>: <span class="hljs-string">"OK"</span>
                                 }
@@ -1486,7 +1488,7 @@
                                 </ul>
                                 <p>Example:</p>
                                 <pre><code><span class="hljs-variable">$ </span>curl <span class="hljs-symbol">http:</span>/<span class="hljs-regexp">/127.0.0.1:13580/stop</span>_mining -H <span class="hljs-string">'Content-Type: application/json'</span>
-                                
+
                                 {
                                   <span class="hljs-string">"status"</span>: <span class="hljs-string">"OK"</span>
                                 }
@@ -1505,7 +1507,7 @@
                                 </ul>
                                 <p>Example while mining:</p>
                                 <pre><code><span class="hljs-variable">$ </span>curl <span class="hljs-symbol">http:</span>/<span class="hljs-regexp">/127.0.0.1:13580/mining</span>_status -H <span class="hljs-string">'Content-Type: application/json'</span>
-                                
+
                                 {
                                   <span class="hljs-string">"active"</span>: <span class="hljs-keyword">true</span>,
                                   <span class="hljs-string">"address"</span>: <span class="hljs-string">"47xu3gQpF569au9C2ajo5SSMrWji6xnoE5vhr94EzFRaKAGw6hEGFXYAwVADKuRpzsjiU1PtmaVgcjUJF89ghGPhUXkndHc"</span>,
@@ -1516,7 +1518,7 @@
                                 }
                                 </code></pre><p>Example while not mining:</p>
                                 <pre><code><span class="hljs-variable">$ </span>curl <span class="hljs-symbol">http:</span>/<span class="hljs-regexp">/127.0.0.1:13580/mining</span>_status -H <span class="hljs-string">'Content-Type: application/json'</span>
-                                
+
                                 {
                                   <span class="hljs-string">"active"</span>: <span class="hljs-keyword">false</span>,
                                   <span class="hljs-string">"address"</span>: <span class="hljs-string">""</span>,
@@ -1535,7 +1537,7 @@
                                 </ul>
                                 <p>Example:</p>
                                 <pre><code><span class="hljs-variable">$ </span>curl <span class="hljs-symbol">http:</span>/<span class="hljs-regexp">/127.0.0.1:13580/save</span>_bc -H <span class="hljs-string">'Content-Type: application/json'</span>
-                                
+
                                 {
                                   <span class="hljs-string">"status"</span>: <span class="hljs-string">"OK"</span>
                                 }
@@ -1558,7 +1560,7 @@
                                 </ul>
                                 <p>Example (truncated lists):</p>
                                 <pre><code>$ curl http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0</span>.<span class="hljs-number">1</span>:<span class="hljs-number">13580</span>/get_peer_list -H <span class="hljs-string">'Content-Type: application/json'</span>
-                                
+
                                 {
                                   <span class="hljs-string">"gray_list"</span>: [{
                                     <span class="hljs-string">"host"</span>: <span class="hljs-string">"640304833"</span>,
@@ -1603,13 +1605,13 @@
                                 </ul>
                                 <p>Example while mining:</p>
                                 <pre><code>$ curl http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">13580</span>/set_log_hash_rate -d '{<span class="hljs-string">"visible"</span>:<span class="hljs-literal">true</span>}' -H <span class="hljs-symbol">'Content</span>-<span class="hljs-keyword">Type</span>: application/json'
-                                
+
                                 {
                                   <span class="hljs-string">"status"</span>: <span class="hljs-string">"OK"</span>
                                 }
                                 </code></pre><p>Error while not mining:</p>
                                 <pre><code>$ curl http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">13580</span>/set_log_hash_rate -d '{<span class="hljs-string">"visible"</span>:<span class="hljs-literal">true</span>}' -H <span class="hljs-symbol">'Content</span>-<span class="hljs-keyword">Type</span>: application/json'
-                                
+
                                 {
                                   <span class="hljs-string">"status"</span>: <span class="hljs-string">"NOT MINING"</span>
                                 }
@@ -1627,7 +1629,7 @@
                                 </ul>
                                 <p>Example:</p>
                                 <pre><code><span class="hljs-variable">$ </span>curl <span class="hljs-symbol">http:</span>/<span class="hljs-regexp">/127.0.0.1:13580/set</span>_log_level -d <span class="hljs-string">'{"level":1}'</span> -H <span class="hljs-string">'Content-Type: application/json'</span>
-                                
+
                                 {
                                   <span class="hljs-string">"status"</span>: <span class="hljs-string">"OK"</span>
                                 }
@@ -1704,14 +1706,14 @@
                                 </ul>
                                 <p>Example to set all facilities to Security Level <code>Info</code>:</p>
                                 <pre><code>$ curl http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">13580</span>/set_log_categories -d '{<span class="hljs-string">"categories"</span>: <span class="hljs-string">"*:INFO"</span>}' -H <span class="hljs-symbol">'Content</span>-<span class="hljs-keyword">Type</span>: application/json'
-                                
+
                                 {
                                   <span class="hljs-string">"categories"</span>: <span class="hljs-string">"*:INFO"</span>,
                                   <span class="hljs-string">"status"</span>: <span class="hljs-string">"OK"</span>
                                 }
                                 </code></pre><p>Example without input to set the default categories:</p>
                                 <pre><code><span class="hljs-variable">$ </span>curl <span class="hljs-symbol">http:</span>/<span class="hljs-regexp">/127.0.0.1:13580/set</span>_log_categories -H <span class="hljs-string">'Content-Type: application/json'</span>
-                                
+
                                 {
                                   <span class="hljs-string">"categories"</span>: <span class="hljs-string">"*:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO"</span>,
                                   <span class="hljs-string">"status"</span>: <span class="hljs-string">"OK"</span>
@@ -1795,7 +1797,7 @@
                                 </ul>
                                 <p>Example (Note: Some lists in the returned information have been truncated for display reasons):</p>
                                 <pre><code>$ curl http://127.0.0.1:13580/get_transaction_pool -H 'Content-Type: application/json'
-                                
+
                                 {
                                   "spent_key_images": [{
                                     "id_hash": "a2af919609db4ff5ab8d4ba18502e647d521760e1cbc30288f06fa87bf9a0c1c",
@@ -1838,7 +1840,7 @@
                                 </ul>
                                 <p>Example:</p>
                                 <pre><code><span class="hljs-variable">$ </span>curl <span class="hljs-symbol">http:</span>/<span class="hljs-regexp">/127.0.0.1:13580/get</span>_transaction_pool_hashes.bin -H <span class="hljs-string">'Content-Type: application/json'</span>
-                                
+
                                 {
                                   <span class="hljs-string">"status"</span>: <span class="hljs-string">"OK"</span>,
                                   <span class="hljs-string">"tx_hashes"</span>: <span class="hljs-string">" ... "</span>,
@@ -1874,7 +1876,7 @@
                                 </ul>
                                 <p>Example:</p>
                                 <pre><code><span class="hljs-variable">$ </span>curl <span class="hljs-symbol">http:</span>/<span class="hljs-regexp">/127.0.0.1:13580/get</span>_transaction_pool_stats -H <span class="hljs-string">'Content-Type: application/json'</span>
-                                
+
                                 {
                                   <span class="hljs-string">"pool_stats"</span>: {
                                     <span class="hljs-string">"bytes_max"</span>: <span class="hljs-number">47222</span>,
@@ -1904,7 +1906,7 @@
                                 </ul>
                                 <p>Example:</p>
                                 <pre><code><span class="hljs-variable">$ </span>curl <span class="hljs-symbol">http:</span>/<span class="hljs-regexp">/127.0.0.1:13580/stop</span>_daemon -H <span class="hljs-string">'Content-Type: application/json'</span>
-                                
+
                                 {
                                   <span class="hljs-string">"status"</span>: <span class="hljs-string">"OK"</span>
                                 }
@@ -1928,7 +1930,7 @@
                                 </ul>
                                 <p>Example:</p>
                                 <pre><code><span class="hljs-variable">$ </span>curl <span class="hljs-symbol">http:</span>/<span class="hljs-regexp">/127.0.0.1:13580/get</span>_limit -H <span class="hljs-string">'Content-Type: application/json'</span>
-                                
+
                                 {
                                   <span class="hljs-string">"limit_down"</span>: <span class="hljs-number">8192</span>,
                                   <span class="hljs-string">"limit_up"</span>: <span class="hljs-number">128</span>,
@@ -1951,7 +1953,7 @@
                                 </ul>
                                 <p>Example:</p>
                                 <pre><code><span class="hljs-variable">$ </span>curl <span class="hljs-symbol">http:</span>/<span class="hljs-regexp">/127.0.0.1:13580/set</span>_limit -d <span class="hljs-string">'{"limit_down": 1024}'</span> -H <span class="hljs-string">'Content-Type: application/json'</span>
-                                
+
                                 {
                                   <span class="hljs-string">"limit_down"</span>: <span class="hljs-number">1024</span>,
                                   <span class="hljs-string">"limit_up"</span>: <span class="hljs-number">128</span>,
@@ -1970,7 +1972,7 @@
                                 </ul>
                                 <p>Example:</p>
                                 <pre><code><span class="hljs-variable">$ </span>curl <span class="hljs-symbol">http:</span>/<span class="hljs-regexp">/127.0.0.1:13580/out</span>_peers -d <span class="hljs-string">'{"out_peers": 3232235535}'</span> -H <span class="hljs-string">'Content-Type: application/json'</span>
-                                
+
                                 {
                                   <span class="hljs-string">"status"</span>: <span class="hljs-string">"OK"</span>
                                 }
@@ -1987,7 +1989,7 @@
                                 </ul>
                                 <p>Example:</p>
                                 <pre><code><span class="hljs-variable">$ </span>curl <span class="hljs-symbol">http:</span>/<span class="hljs-regexp">/127.0.0.1:13580/out</span>_peers -d <span class="hljs-string">'{"in_peers": 3232235535}'</span> -H <span class="hljs-string">'Content-Type: application/json'</span>
-                                
+
                                 {
                                   <span class="hljs-string">"status"</span>: <span class="hljs-string">"OK"</span>
                                 }
@@ -2001,7 +2003,7 @@
                                 </ul>
                                 <p>Example:</p>
                                 <pre><code><span class="hljs-variable">$ </span>curl <span class="hljs-symbol">http:</span>/<span class="hljs-regexp">/127.0.0.1:13580/start</span>_save_graph -H <span class="hljs-string">'Content-Type: application/json'</span>
-                                
+
                                 {
                                   <span class="hljs-string">"status"</span>: <span class="hljs-string">"OK"</span>
                                 }
@@ -2015,7 +2017,7 @@
                                 </ul>
                                 <p>Example:</p>
                                 <pre><code><span class="hljs-variable">$ </span>curl <span class="hljs-symbol">http:</span>/<span class="hljs-regexp">/127.0.0.1:13580/stop</span>_save_graph -H <span class="hljs-string">'Content-Type: application/json'</span>
-                                
+
                                 {
                                   <span class="hljs-string">"status"</span>: <span class="hljs-string">"OK"</span>
                                 }
@@ -2063,7 +2065,7 @@
                                 </ul>
                                 <p>Example:</p>
                                 <pre><code>$ curl http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">13580</span>/update -d '{<span class="hljs-string">"command"</span>:<span class="hljs-string">"check"</span>}' -H <span class="hljs-symbol">'Content</span>-<span class="hljs-keyword">Type</span>: application/json'
-                                
+
                                 {
                                   <span class="hljs-string">"auto_uri"</span>: <span class="hljs-string">""</span>,
                                   <span class="hljs-string">"hash"</span>: <span class="hljs-string">""</span>,

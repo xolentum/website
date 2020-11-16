@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head profile="http://www.w3.org/2005/10/profile">
-    	<link rel="icon" type="image/png" href="/images/favicon.png" />
+        <link rel="icon" type="image/png" href="/images/favicon.png" />
     	<meta charset="utf-8" />
     	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     	<meta name="description" content="Xolentum is a decentralized, peer-to-peer and open source digital currency. It's fast, secure and completely private.">
@@ -37,26 +37,28 @@
 			</div>
 		</span>
 		<div class="inner">
-			<nav id="nav" class="collapse">
+    		<nav id="nav" class="collapse">
 				<ul>
 					<li><a href="/">Home</a></li>
 					<li><a href="/downloads">Downloads</a></li>
 					<li><a href="https://medium.com/@xolentum">Blog</a></li>
 					<li>
-						<a href="#">Community</a>
+						<a href="#">Community <i class="fa fa-caret-down" aria-hidden="true"></i></a>
 						<ul>
-							<li><a href="/community/team">Our Team</a></li>
+							<li><a href="/community/team">Team</a></li>
 							<li><a href="/community/services">Services</a></li>
+                            <li><a href="/community/funding">Funding</a></li>
 						</ul>
 					</li>
 					<li>
-						<a href="#">Resources</a>
+						<a href="#">Resources <i class="fa fa-caret-down" aria-hidden="true"></i></a>
 						<ul>
 							<li><a href="/resources/documentation">Documentation</a></li>
 							<li><a href="/resources/guides">Guides</a></li>
 							<li><a href="/resources/press-kit">Press Kit</a></li>
 						</ul>
 					</li>
+					<!-- TODO: Add multilingual support -->
 					<li><a href="#" class="button scrolly">EN</a></li>
 				</ul>
 			</nav>
@@ -76,13 +78,13 @@
 		        <a href="#arch_linux"><li>Arch Linux</li></a>
 		        <a href="#windows"><li>Windows</li></a>
 		    </ul>
-		    
+
 		    <p>
 		        <b><u>NOTE:</u></b> To create a static release, use <code>make release-static</code> instead of <code>make</code> in the last step. <b>(Currently not supported on CentOS 7 and 8)</b>.
 		    </p>
-		    
+
 		    <hr>
-		    
+
 		    <h3 id="ubuntu"><strong>Ubuntu 16/18/20</strong></h3>
 		    <ul>
 		        <li>
@@ -126,7 +128,7 @@
 		            <pre><code>cd xolentum && make</code></pre>
 		        </li>
 		    </ul>
-		    
+
 		    <h3 id="centos_7"><strong>CentOS 7</strong></h3>
 		    <ul>
 		        <li>
@@ -156,9 +158,9 @@ tar xzvf boost_1_68_0.tar.gz && cd boost_1_68_0
 		            Start the build process.<br>
 		            <pre><code>cd xolentum && cmake3 . && make</code></pre>
 		        </li>
-		        The binaries will be in <code>/bin</code> directory when complete. 
+		        The binaries will be in <code>/bin</code> directory when complete.
 		    </ul>
-		    
+
 		    <h3 id="centos_8"><strong>CentOS 8</strong></h3>
 		    <ul>
 		        <li>
@@ -186,7 +188,7 @@ tar xzvf boost_1_68_0.tar.gz && cd boost_1_68_0
 		            <pre><code>cd xolentum && make</code></pre>
 		        </li>
 		    </ul>
-		    
+
 		    <h3 id="arch_linux"><strong>Arch Linux</strong></h3>
 		    <ul>
 		        <li>
@@ -202,7 +204,7 @@ tar xzvf boost_1_68_0.tar.gz && cd boost_1_68_0
 		            <pre><code>cd xolentum && make</code></pre>
 		        </li>
 		    </ul>
-		    
+
 		    <h3 id="windows"><strong>Windows</strong></h3>
 		    <ul>
                 <li>
@@ -253,7 +255,7 @@ tar xzvf boost_1_68_0.tar.gz && cd boost_1_68_0
                 </li>
             </ul>
 
-		    
+
 		</div>
 	</section>
 

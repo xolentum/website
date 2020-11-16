@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html>
-	<head profile="http://www.w3.org/2005/10/profile">
+    <head profile="http://www.w3.org/2005/10/profile">
     	<link rel="icon" type="image/png" href="/images/favicon.png" />
     	<meta charset="utf-8" />
     	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -25,7 +25,7 @@
     		<link rel="stylesheet" href="/assets/css/noscript.css" />
     	</noscript>
     </head>
-    
+
 	<body class="is-preload">
 
 		<section id="header">
@@ -37,26 +37,28 @@
 			</div>
 		</span>
 		<div class="inner">
-			<nav id="nav" class="collapse">
+    		<nav id="nav" class="collapse">
 				<ul>
 					<li><a href="/">Home</a></li>
 					<li><a href="/downloads">Downloads</a></li>
 					<li><a href="https://medium.com/@xolentum">Blog</a></li>
 					<li>
-						<a href="#">Community</a>
+						<a href="#">Community <i class="fa fa-caret-down" aria-hidden="true"></i></a>
 						<ul>
-							<li><a href="/community/team">Our Team</a></li>
+							<li><a href="/community/team">Team</a></li>
 							<li><a href="/community/services">Services</a></li>
+                            <li><a href="/community/funding">Funding</a></li>
 						</ul>
 					</li>
 					<li>
-						<a href="#">Resources</a>
+						<a href="#">Resources <i class="fa fa-caret-down" aria-hidden="true"></i></a>
 						<ul>
 							<li><a href="/resources/documentation">Documentation</a></li>
 							<li><a href="/resources/guides">Guides</a></li>
 							<li><a href="/resources/press-kit">Press Kit</a></li>
 						</ul>
 					</li>
+					<!-- TODO: Add multilingual support -->
 					<li><a href="#" class="button scrolly">EN</a></li>
 				</ul>
 			</nav>
@@ -66,13 +68,13 @@
 		<!-- One -->
 			<section id="one" class="main style1">
 				<div class="container">
-					
+
 							<header class="major">
 								<h2>Wallet RPC Documentation</h2>
 							</header>
 							<p>This is a list of the <code>xolentum-wallet-rpc</code> calls, their inputs and outputs, and examples of each.</p>
 							<p>All xolentum-wallet-rpc methods use the same JSON RPC interface. For example:</p>
-							
+
 							<pre><code>IP=<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>
                                 PORT=<span class="hljs-number">xxxxx</span>
                                 METHOD=<span class="hljs-string">"make_integrated_address"</span>
@@ -92,15 +94,15 @@
                                     -d '{<span class="hljs-string">"jsonrpc"</span>:<span class="hljs-string">"2.0"</span>,<span class="hljs-string">"id"</span>:<span class="hljs-string">"0"</span>,<span class="hljs-string">"method"</span>:<span class="hljs-string">"'$METHOD'"</span>,<span class="hljs-string">"params"</span>:'<span class="hljs-string">"$PARAMS"</span><span class="hljs-string">'}'</span> \
                                     -H <span class="hljs-symbol">'Content</span>-<span class="hljs-keyword">Type</span>: application/json'
                                 </code></pre><p>Note: <i>atomic-units</i> refer to the smallest fraction of 1 XOL according to the <code>xolentumd</code> implementation. <strong>1 XOL = 1e12 <i>atomic-units</i>.</strong></p>
-                                
+
                                 <header class="major">
 								    <h3>RPC Methods</h3>
 							    </header>
-                            
+
 						    <div class="row gtr-150">
 						        <div class="col-6 col-12-medium">
-						        
-							
+
+
 						        <ul>
                                     <li><a href="#set_daemon">set_daemon</a></li>
                                     <li><a href="#get_balance">get_balance</a></li>
@@ -188,9 +190,9 @@
                                 </ul>
                                 </div>
 						    </div>
-						    
+
 						    <hr>
-                                
+
                                 <h3 id="set_daemon"><strong>set_daemon</strong></h3>
                                     <p>Connect the RPC server to a Xolentum daemon.</p>
                                     <p>Inputs:</p>
@@ -1679,12 +1681,12 @@
                                           <span class="hljs-string">"change_amount"</span>: <span class="hljs-number">4976287087263</span>,
                                           <span class="hljs-string">"dummy_outputs"</span>: <span class="hljs-number">0</span>,
                                           <span class="hljs-string">"extra"</span>: <span class="hljs-number">01</span>b998f16459bcbac9c92074d3128d10724f10b74f5a7b1ec8e5a1e7f1150544020209010000000000000000<span class="hljs-string">",
-                                          "</span>fee<span class="hljs-string">": 33686583468, 
+                                          "</span>fee<span class="hljs-string">": 33686583468,
                                           "</span>payment_id<span class="hljs-string">": "</span><span class="hljs-number">0000000000000000000000000000000000000000000000000000000000000000</span><span class="hljs-string">",
                                           "</span>recipients<span class="hljs-string">": [{
                                             "</span>address<span class="hljs-string">": "</span><span class="hljs-number">0</span>b057f69acc1552014cb157138e5c4dd495347d333f68ff0af70494b979aed10<span class="hljs-string">",
                                             "</span>amount<span class="hljs-string">": 881479064964081
-                                          }],       
+                                          }],
                                           "</span>ring_size<span class="hljs-string">": 11,
                                           "</span>unlock_time<span class="hljs-string">": 0
                                         ]}
@@ -2022,7 +2024,7 @@
                                     <p>Outputs: <em>None</em>.</p>
                                     <p>Example:</p>
                                     <pre><code>$ curl http://localhost:<span class="hljs-number">13581</span>/json_rpc -d '{<span class="hljs-string">"jsonrpc"</span>:<span class="hljs-string">"2.0"</span>,<span class="hljs-string">"id"</span>:<span class="hljs-string">"0"</span>,<span class="hljs-string">"method"</span>:<span class="hljs-string">"rescan_spent"</span>}' -H <span class="hljs-symbol">'Content</span>-<span class="hljs-keyword">Type</span>: application/json'
-                                    
+
                                     {
                                       <span class="hljs-string">"id"</span>: <span class="hljs-string">"0"</span>,
                                       <span class="hljs-string">"jsonrpc"</span>: <span class="hljs-string">"2.0"</span>,
@@ -2377,9 +2379,9 @@
                                       }
                                     }
                                     </code></pre>
-						    
+
 						</div>
-					
+
 			</section>
 
 			<section id="footer">
