@@ -20,7 +20,7 @@ particlesJS(
         value: 155,
         density: {
           enable: true,
-          value_area: 900,
+          value_area: 800,
         },
       },
       color: {
@@ -37,7 +37,7 @@ particlesJS(
         },
       },
       opacity: {
-        value: 0.6,
+        value: 0.5,
         random: false,
         anim: {
           enable: true,
