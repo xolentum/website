@@ -3,8 +3,8 @@
     <head profile="http://www.w3.org/2005/10/profile">
         <link rel="icon" type="image/png" href="/images/favicon.png" />
         <meta charset="utf-8" />
-    	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    	<meta name="description" content="Xolentum is a decentralized, peer-to-peer and open source digital currency. It's fast, secure and completely private.">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <meta name="description" content="Xolentum is a decentralized, peer-to-peer and open source digital currency. It's fast, secure and completely private.">
     	<title>Mining Guide | Xolentum</title>
     	<meta name="robots" content="index, follow" />
     	<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
@@ -83,7 +83,7 @@
 				        <h4><u>Using daemon</u></h4>
 				        <pre><code>{
     "autosave": true,
-    "donate-level": 5,
+    "donate-level": 1,
     "cpu": true,
     "opencl": false,
     "cuda": false,
@@ -95,11 +95,11 @@
             "daemon": true
         }
     ]
-}</code></pre><b>Do remember to replace <code>xyz123</code> with your Xolentum wallet address. <br>Also, change <code>donate-level</code> to whatever amount you would like to donate to XMRig developers (0 to disable donations).</b>          <br>
+}</code></pre><b>Do remember to replace <code>xyz123</code> with your Xolentum wallet address. <br>Also, change <code>donate-level</code> to whatever amount you would like to donate to XMRig developers (donations can be disabled in the source code but the application has to be self-compiled).</b>          <br>
                     <h4><u>Using mining pool</u></h4>
                     <pre><code>{
     "autosave": true,
-    "donate-level": 5,
+    "donate-level": 1,
     "cpu": true,
     "opencl": false,
     "cuda": false,
@@ -115,7 +115,7 @@
             "nicehash": false
         }
     ]
-}</code></pre><b>Set the mining pool in the <code>pool.address:port</code> format in <code>url</code> field. Do remember to replace <code>xyz123</code> with your Xolentum wallet address. <br>Also, change <code>donate-level</code> to whatever amount you would like to donate to XMRig developers (0 to disable donations).</b>
+}</code></pre><b>Set the mining pool in the <code>pool.address:port</code> format in <code>url</code> field. Do remember to replace <code>xyz123</code> with your Xolentum wallet address. <br>Also, change <code>donate-level</code> to whatever amount you would like to donate to XMRig developers (donations can be disabled in the source code but the application has to be self-compiled).</b> <br>
 				    </li>
 				    <li>
 				        Henceforth, just execute the <code>xmrig.exe</code> file (on Windows) or <code>./xmrig</code> (on Linux) and the miner should start.
