@@ -3,8 +3,8 @@
 <head profile="http://www.w3.org/2005/10/profile">
         <link rel="icon" type="image/png" href="/images/favicon.png" />
         <meta charset="utf-8" />
-    	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    	<meta name="description" content="Xolentum is a decentralized, peer-to-peer and open source digital currency. It's fast, secure and completely private.">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <meta name="description" content="Xolentum is a decentralized, peer-to-peer and open source digital currency. It's fast, secure and completely private.">
     	<title>Compilation Guide | Xolentum</title>
     	<meta name="robots" content="index, follow" />
     	<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
@@ -79,6 +79,8 @@
 		        <a href="#centos_8"><li>CentOS 8</li></a>
 		        <a href="#arch_linux"><li>Arch Linux</li></a>
 		        <a href="#windows"><li>Windows</li></a>
+                <br>
+                <a href="#docker"><li>Docker</li></a>
 		    </ul>
 
 		    <p>
@@ -256,6 +258,40 @@ tar xzvf boost_1_68_0.tar.gz && cd boost_1_68_0
                     </ul>
                 </li>
             </ul>
+            
+            <h3 id="docker"><strong>Docker</strong></h3>
+    	    <ul>
+		        <li>
+		            Pull the official images.<br>
+		            <pre><code>docker pull xolentum/xolentum</code></pre>
+		        </li>
+                <li>
+                    Create network bridge so that containers can communicate.<br>
+                    <pre><code>docker network create --driver=bridge xolentum</code></pre>
+                </li>
+		        <li>
+		            Start the daemon.<br>
+		            <pre><code>docker run -d --rm --name xolentum-daemon \
+  --net=xolentum \
+  -v daemon:/data \
+  -p 13580:13580 \
+   xolentum/xolentum \
+   xolentumd \
+   --data-dir=/data \
+   --confirm-external-bind \
+   --non-interactive</code></pre>
+		        </li>
+		        <li>
+		            Start the CLI wallet.<br>
+		            <pre><code>docker run --rm -it --name xolentum-wallet \
+  --net=xolentum \
+  -v wallet:/data \
+  xolentum \
+  xolentum-wallet-cli \
+    --trusted-daemon \
+    --daemon-address xolentum-daemon:13580</code></pre>
+		        </li>
+		    </ul>
 
 
 		</div>
