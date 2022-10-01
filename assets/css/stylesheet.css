@@ -327,7 +327,9 @@ pre code {
   padding: 1em 1.5em;
   overflow-x: auto;
 }
-
+.res-button{
+  width: 80%;
+}
 .align-left {
   text-align: left;
 }
@@ -2919,6 +2921,7 @@ button:disabled,
   background-attachment: fixed, fixed;
   background-image: url("images/overlay1.png"), url("../../images/header.jpg");
   background-size: auto, cover;
+  padding-bottom: 2rem;
 }
 
 .main.style2 a {
